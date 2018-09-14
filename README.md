@@ -12,8 +12,7 @@ Files and scripts
 ------
 
 `Data`
-* `hierarchypaperdata.dta` - contains all variables used to estimate models   
-* `simulation.dta` - a copy of the `hierarchypaperdata.dta` due to variable names switch between R and Stata
+* `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects.
 * `emp_imputeBays.dta` - imputed data for empowerment
 * `fert_imputeBays.dta` - imputed data for fertility 
 
