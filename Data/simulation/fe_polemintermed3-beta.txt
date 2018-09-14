@@ -1,0 +1,2 @@
+fe_polemintermed31	fe_polemintermed32	fe_polemintermed33	fe_polemintermed34	fe_polemintermed35	fe_polemintermed36	fe_polemintermed37	fe_polemintermed38	fe_polemintermed39	fe_polemintermed310	fe_polemintermed311	fe_polemintermed312	fe_polemintermed313	fe_polemintermed314
+.003502	-.1941338	.0016602	.0138885	-.0002147	.000056	.0119348	.0054732	.0013116	-.0010688	.0005831	.0009588	.0181363	-1.842239

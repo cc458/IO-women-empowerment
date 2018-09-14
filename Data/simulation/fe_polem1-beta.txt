@@ -1,0 +1,2 @@
+fe_polem11	fe_polem12	fe_polem13	fe_polem14	fe_polem15	fe_polem16	fe_polem17	fe_polem18	fe_polem19
+.0004865	-.0988887	.0056428	.0009104	-.0002366	.0005247	.0004754	.0099214	-.8869566
