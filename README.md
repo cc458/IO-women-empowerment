@@ -27,48 +27,20 @@ Files and scripts
 * `3_Figures_3-7.R` – R code to reproduce Figures 3-7
 
 
+`R sessionInfo()`
 
-R sessionInfo()
-R version 3.4.3 (2017-11-30)
-Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+**R version 3.4.3 (2017-11-30)**
 
-Matrix products: default
-BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+**Platform:** x86_64-apple-darwin15.6.0 (64-bit) 
 
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+**locale:**
+en_US.UTF-8||en_US.UTF-8||en_US.UTF-8||C||en_US.UTF-8||en_US.UTF-8
 
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
+**attached base packages:** 
+_stats_, _graphics_, _grDevices_, _utils_, _datasets_, _methods_ and _base_
 
-other attached packages:
- [1] tidyquant_0.5.4            forcats_0.2.0              stringr_1.3.0             
- [4] readr_1.1.1                tidyr_0.8.0                tibble_1.4.2              
- [7] tidyverse_1.2.1            quantmod_0.4-11            TTR_0.23-2                
-[10] PerformanceAnalytics_1.5.2 xts_0.10-0                 zoo_1.8-0                 
-[13] lubridate_1.7.1            cshapes_0.6                plyr_1.8.4                
-[16] ggmap_2.6.1                scales_0.5.0.9000          countrycode_1.00.0        
-[19] maptools_0.9-2             rgdal_1.2-10               sp_1.2-7                  
-[22] bindrcpp_0.2               dplyr_0.7.4                purrr_0.2.4               
-[25] ggridges_0.4.1             viridis_0.4.0              viridisLite_0.3.0         
-[28] ggthemes_3.4.0             ggplot2_2.2.1.9000         arm_1.9-3                 
-[31] lme4_1.1-13                Matrix_1.2-12              MASS_7.3-47               
-[34] readstata13_0.9.0         
+**other attached packages:** 
+_rgdal(v.1.2-10)_, _tidyquant(v.0.5.4)_, _forcats(v.0.2.0)_, _stringr(v.1.3.0)_, _readr(v.1.1.1)_, _tidyr(v.0.8.0)_, _tibble(v.1.4.2)_, _tidyverse(v.1.2.1)_, _quantmod(v.0.4-11)_, _TTR(v.0.23-2)_, _PerformanceAnalytics(v.1.5.2)_, _xts(v.0.10-0)_, _zoo(v.1.8-0)_, _lubridate(v.1.7.1)_, _cshapes(v.0.6)_, _plyr(v.1.8.4)_, _ggmap(v.2.6.1)_, _scales(v.0.5.0.9000)_, _countrycode(v.1.00.0)_, _maptools(v.0.9-2)_, _sp(v.1.2-7)_, _dplyr(v.0.7.4)_, _purrr(v.0.2.4)_, _ggridges(v.0.4.1)_, _viridis(v.0.4.0)_, _viridisLite(v.0.3.0)_, _ggthemes(v.3.4.0)_, _ggplot2(v.2.2.1.9000)_, _arm(v.1.9-3)_, _lme4(v.1.1-13)_, _Matrix(v.1.2-12)_, _MASS(v.7.3-47)_, _readstata13(v.0.9.0)_ and _pander(v.0.6.2)_
 
-loaded via a namespace (and not attached):
- [1] nlme_3.1-131       RColorBrewer_1.1-2 httr_1.3.1         tools_3.4.3        R6_2.2.2          
- [6] rgeos_0.3-23       lazyeval_0.2.1     colorspace_1.3-2   withr_2.1.2        gridExtra_2.3     
-[11] mnormt_1.5-5       curl_2.8.1         compiler_3.4.3     cli_1.0.0          rvest_0.3.2       
-[16] xml2_1.1.1         labeling_0.3       psych_1.8.3.3      quadprog_1.5-5     digest_0.6.15     
-[21] foreign_0.8-69     minqa_1.2.4        jpeg_0.1-8         pkgconfig_2.0.1    maps_3.2.0        
-[26] rlang_0.2.1        readxl_1.0.0       rstudioapi_0.7     bindr_0.1          jsonlite_1.5      
-[31] magrittr_1.5       geosphere_1.5-7    Quandl_2.8.0       Rcpp_0.12.17       munsell_0.4.3     
-[36] abind_1.4-5        proto_1.0.0        stringi_1.1.7      yaml_2.1.18        grid_3.4.3        
-[41] parallel_3.4.3     crayon_1.3.4       lattice_0.20-35    haven_1.1.0        splines_3.4.3     
-[46] mapproj_1.2.6      hms_0.4.0          pillar_1.2.1       rjson_0.2.15       reshape2_1.4.3    
-[51] timetk_0.1.0       glue_1.2.0         modelr_0.1.1       png_0.1-7          nloptr_1.0.4      
-[56] RgoogleMaps_1.4.1  cellranger_1.1.0   gtable_0.2.0       assertthat_0.2.0   broom_0.4.4       
-[61] coda_0.19-1       
-> 
+**loaded via a namespace (and not attached):** 
+_httr(v.1.3.1)_, _maps(v.3.2.0)_, _jsonlite(v.1.5)_, _splines(v.3.4.3)_, _modelr(v.0.1.1)_, _assertthat(v.0.2.0)_, _cellranger(v.1.1.0)_, _yaml(v.2.1.18)_, _pillar(v.1.2.1)_, _lattice(v.0.20-35)_, _glue(v.1.2.0)_, _quadprog(v.1.5-5)_, _digest(v.0.6.15)_, _rvest(v.0.3.2)_, _minqa(v.1.2.4)_, _colorspace(v.1.3-2)_, _psych(v.1.8.3.3)_, _pkgconfig(v.2.0.1)_, _broom(v.0.4.4)_, _haven(v.1.1.0)_, _jpeg(v.0.1-8)_, _withr(v.2.1.2)_, _lazyeval(v.0.2.1)_, _cli(v.1.0.0)_, _mnormt(v.1.5-5)_, _proto(v.1.0.0)_, _crayon(v.1.3.4)_, _readxl(v.1.0.0)_, _magrittr(v.1.5)_, _nlme(v.3.1-131)_, _xml2(v.1.1.1)_, _foreign(v.0.8-69)_, _tools(v.3.4.3)_, _hms(v.0.4.0)_, _geosphere(v.1.5-7)_, _RgoogleMaps(v.1.4.1)_, _munsell(v.0.4.3)_, _bindrcpp(v.0.2)_, _compiler(v.3.4.3)_, _rlang(v.0.2.1)_, _grid(v.3.4.3)_, _nloptr(v.1.0.4)_, _rstudioapi(v.0.7)_, _rjson(v.0.2.15)_, _gtable(v.0.2.0)_, _abind(v.1.4-5)_, _curl(v.2.8.1)_, _reshape2(v.1.4.3)_, _R6(v.2.2.2)_, _gridExtra(v.2.3)_, _bindr(v.0.1)_, _Quandl(v.2.8.0)_, _stringi(v.1.1.7)_, _parallel(v.3.4.3)_, _Rcpp(v.0.12.17)_, _mapproj(v.1.2.6)_, _png(v.0.1-7)_ and _coda(v.0.19-1)_
