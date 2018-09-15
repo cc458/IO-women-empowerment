@@ -1,4 +1,4 @@
-// set working directory
+// set a working directory
 cd "~/IO-women-empowerment"
 
 **load data
@@ -14,7 +14,13 @@ xtunitroot fisher s.polempowerment, pperron lags(0)
 xtunitroot fisher s.WBfertility, pperron lags(0) 
 
 
-// save coefficient and variance-covariance for simulation
+********************** 
+//All tables go to appendix; figures are created in R with the 
+//estimated coefficient and variance-covariance (figs 3-7)
+//save coefficient and variance-covariance for simulation
+********************** 
+
+**********************  Appendix Table A1: Model 1-8 (for Fig 3(a))
 *Base model with war as treatment, including the neighboring instability measures as instruments
 xtreg s.polempowerment warDummy l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polempowerment_0
@@ -28,7 +34,6 @@ estimates store FE_polempowerment_0
 		svmat vcov, names("fe_polem0vcv")
 		outsheet fe_polem0* in 1/20 using "Data/simulation/fe_polem0-vcv.txt", replace 
 	restore	
-
 	
 ***future 1 year
 xtreg fs2.polempowerment warDummy l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe  vce(cluster ccode)
@@ -125,7 +130,7 @@ estimates store FE_polempowerment_15
 		outsheet fe_polem15* in 1/20 using "Data/simulation/fe_polem15-vcv.txt", replace 
 	restore	
 
-********************************************** main table 1
+********************************************** Table A1 to latex
 esttab FE_polempowerment_0 FE_polempowerment_1 FE_polempowerment_2 FE_polempowerment_3 FE_polempowerment_4 ///
 		FE_polempowerment_5 FE_polempowerment_10 FE_polempowerment_15 using "Tables/tab2.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 1\\(current)}" "\shortstack{Model 2\\(1-year)}" "\shortstack{Model 3\\(2-year)}" "\shortstack{Model 4\\(3-year)}" ///
@@ -133,9 +138,7 @@ esttab FE_polempowerment_0 FE_polempowerment_1 FE_polempowerment_2 FE_polempower
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of war on future changes in women's political empowerment\label{tab2})  replace 
 
 
-	
-	
-** Figure 3(b-d)
+********************** Appendix Table A2: Model 9-16 (for Fig 3(b-d))	
 
 *war and lagged war interact for more acurate counterfactual (do get more empowerment when have come out of war, but also a drop in empowerment when entering into war, so some but not all of the gains after war are just a reversion to normal).
 xtreg s.polempowerment newwar ongoingwar recentwar l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
@@ -243,6 +246,7 @@ estimates store FE_polemp_interact_15
 		outsheet fe_interact15* in 1/20 using "Data/simulation/fe_interact15-vcv.txt", replace 
 	restore	
 
+********************************************** Table A2 to latex
 esttab FE_polemp_interact_0 FE_polemp_interact_1 FE_polemp_interact_2 FE_polemp_interact_3 FE_polemp_interact_4 ///
 		FE_polemp_interact_5 FE_polemp_interact_10 FE_polemp_interact_15 using "Tables/tab3.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 9\\(current)}" "\shortstack{Model 10\\(1-year)}" "\shortstack{Model 11\\(2-year)}" "\shortstack{Model 12\\(3-year)}" ///
@@ -250,8 +254,9 @@ esttab FE_polemp_interact_0 FE_polemp_interact_1 FE_polemp_interact_2 FE_polemp_
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of war types on future changes in women political empowerment\label{tab3})  replace 
 
 
-*** Figure 4
-*Stripped down IV ( sevenIVs)
+
+**********************  Appendix Table A3: Model 17-24 (for Fig 4)
+*Stripped down IV (sevenIVs)
 
 etreg s.polempowerment s.polity2 l.polity2 s.lpec l.lpec year, ///
 	treat(warDummy=l.neighboringcivilwar l2.neighboringcivilwar l.neighboringInterStateWar_excldd ///
@@ -374,15 +379,14 @@ estimates store IV_polempowerment_15
 		svmat vcov, names("f15polvcv")
 		outsheet f15polvcv* in 1/29 using "Data/simulation/f15-vcv.txt", replace 
 	restore	
-
+********************************************** Table A3 to latex
 esttab IV_polempowerment_0 IV_polempowerment_1 IV_polempowerment_2 IV_polempowerment_3 IV_polempowerment_4 IV_polempowerment_5 IV_polempowerment_10 IV_polempowerment_15 ///
  using "Tables/IV_polempowerment.tex",se parentheses label star(* 0.10 ** 0.05 *** 0.01) ///
  nonumbers mtitles("\shortstack{Model 17\\(current)}" "\shortstack{Model 18\\(1-year)}" "\shortstack{Model 19\\(2-year)}" "\shortstack{Model 20\\(3-year)}" "\shortstack{Model 21\\(4-year)}" "\shortstack{Model 22\\(5-year)}" "\shortstack{Model 23\\(10-year)}" "\shortstack{Model 24\\(15-year)}") ///
  title(Endogenous Treatment-regression of the effect of war on future changes in women's political empowerment\label{ivpolempowerment})  replace 
 	
-	
-	
-*** Figure 5
+
+**********************  Appendix Table A4: Model 25-32 (for Fig 5(a))	
 *Duration 
 xtreg s.polempowerment wardur l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polemp_wardur_0
@@ -488,16 +492,16 @@ estimates store FE_polemp_wardur_15
 		outsheet fe_polemwardur15* in 1/20 using "Data/simulation/fe_polemwardur15-vcv.txt", replace 
 	restore	
 
-
+********************************************** Table A4 to latex
 esttab FE_polemp_wardur_0 FE_polemp_wardur_1 FE_polemp_wardur_2 FE_polemp_wardur_3 FE_polemp_wardur_4 ///
 		FE_polemp_wardur_5 FE_polemp_wardur_10 FE_polemp_wardur_15 using "Tables/fepolwardur.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 25\\(current)}" "\shortstack{Model 26\\(1-year)}" "\shortstack{Model 27\\(2-year)}" "\shortstack{Model 28\\(3-year)}" ///
 	"\shortstack{Model 29\\(4-year)}" "\shortstack{Model 30\\(5-year)}" "\shortstack{Model 31\\(10-year)}" "\shortstack{Model 32\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of war duration on future changes in women's political empowerment\label{polwardur})  replace 
 
-	
-	
-** figure 5(b)
+
+**********************  Appendix Table A5: Model 33-40 (for Fig 5(b))		
+
 xtreg s.polempowerment ln_bdeaths l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polemp_bd_0
 	mat beta = e(b)
@@ -601,7 +605,7 @@ estimates store FE_polemp_bd_15
 		svmat vcov, names("fe_polembd15vcv")
 		outsheet fe_polembd15* in 1/20 using "Data/simulation/fe_polembd15-vcv.txt", replace 
 	restore
-	
+********************************************** Table A5 to latex	
 esttab FE_polemp_bd_0 FE_polemp_bd_1 FE_polemp_bd_2 FE_polemp_bd_3 FE_polemp_bd_4 ///
 		FE_polemp_bd_5 FE_polemp_bd_10 FE_polemp_bd_15 using "Tables/fepolbdeath.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 33\\(current)}" "\shortstack{Model 34\\(1-year)}" "\shortstack{Model 35\\(2-year)}" "\shortstack{Model 36\\(3-year)}" ///
@@ -609,8 +613,7 @@ esttab FE_polemp_bd_0 FE_polemp_bd_1 FE_polemp_bd_2 FE_polemp_bd_3 FE_polemp_bd_
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of battle deaths on future changes in women's political empowerment\label{polbdeath})  replace 
 	
 
-** Figure 6(a)
-
+**********************  Appendix Table A6: Model 41-48 (for Fig 6(a))	
 * FE fertility with lagged level
 xtreg s.WBfertility warDummy l.WBfertility s.polity2 l.polity2 s.lpec l.lpec year  l.neighborWBfertility , fe  vce(cluster ccode)
 estimates store FE_fertility_0
@@ -715,16 +718,15 @@ estimates store FE_fertility_15
 		svmat vcov, names("fe_fertility15vcv")
 		outsheet fe_fertility15* in 1/20 using "Data/simulation/fe_fertility15-vcv.txt", replace 
 	restore	
-	
+********************************************** Table A6 to latex	
 esttab FE_fertility_0 FE_fertility_1 FE_fertility_2 FE_fertility_3 FE_fertility_4 ///
 		FE_fertility_5 FE_fertility_10 FE_fertility_15 using "Tables/fefertility.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 41\\(current)}" "\shortstack{Model 42\\(1-year)}" "\shortstack{Model 43\\(2-year)}" "\shortstack{Model 44\\(3-year)}" ///
 	"\shortstack{Model 45\\(4-year)}" "\shortstack{Model 46\\(5-year)}" "\shortstack{Model 47\\(10-year)}" "\shortstack{Model 48\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of war on future changes in fertility rates\label{fefertility})  replace 
 	
-	
 
-** Figure 6(b)
+**********************  Appendix Table A7: Model 49-56 (for Fig 6(b))		
 *Existential
 xtreg s.WBfertility existentialwardum l.WBfertility s.polity2 l.polity2 s.lpec l.lpec year l.neighborWBfertility, fe  vce(cluster ccode)
 estimates store FE_fertility_exist_0
@@ -829,16 +831,16 @@ estimates store FE_fertility_exist_15
 	preserve
 		svmat vcov, names("fe_fertilityexist15vcv")
 		outsheet fe_fertilityexist15* in 1/20 using "Data/simulation/fe_fertilityexist15-vcv.txt", replace 
-	restore	
+	restore
+********************************************** Table A7 to latex	
 esttab FE_fertility_exist_0 FE_fertility_exist_1 FE_fertility_exist_2 FE_fertility_exist_3 FE_fertility_exist_4 ///
 		FE_fertility_exist_5 FE_fertility_exist_10 FE_fertility_exist_15 using "Tables/fefertilityexistential.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 49\\(current)}" "\shortstack{Model 50\\(1-year)}" "\shortstack{Model 51\\(2-year)}" "\shortstack{Model 52\\(3-year)}" ///
 	"\shortstack{Model 53\\(4-year)}" "\shortstack{Model 54\\(5-year)}" "\shortstack{Model 55\\(10-year)}" "\shortstack{Model 56\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of existential war on future changes in fertility rates\label{fefertilityexistential})  replace 
 	
-		
 
-** Figure 7(a)
+**********************  Appendix Table A8: Model 57-61 (for Fig 7(a))			
 *rescale population varibable
 replace lpop = lpop*100
 replace lWBmalepop = lWBmalepop*100
@@ -910,6 +912,8 @@ estimates store FE_irregular
 		svmat vcov, names("fe_irregularvcv")
 		outsheet fe_irregularvcv* in 1/20 using "Data/simulation/fe_irregular-vcv.txt", replace 
 	restore
+
+********************************************** Table A8 to latex
 esttab FE_milper  FE_pop  FE_mpop FE_fpop FE_irregular ///
 		using "Tables/FEintermed.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 57\\($\Delta$ mil. per)}" "\shortstack{Model 58\\($\Delta$ population)}" "\shortstack{Model 59\\($\Delta$ male population)}" "\shortstack{Model 60\\($\Delta$ female population)}" ///
@@ -918,8 +922,8 @@ esttab FE_milper  FE_pop  FE_mpop FE_fpop FE_irregular ///
 	
 		
 	
+**********************  Appendix Table A9: Model 62-69 (for ** Figure 7(b-e))	
 
-** Figure 7(b-e)
 
 * With these potential intermediate variables (irregular regime change does lead to an increase in empowerment; and pop decline leads to an increase in the long run)
 xtreg s.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
@@ -1023,7 +1027,7 @@ mat beta = e(b)
 		svmat vcov, names("fe_polemintermed15vcv")
 		outsheet fe_polemintermed15* in 1/20 using "Data/simulation/fe_polemintermed15-vcv.txt", replace 
 
-
+********************************************** Table A9 to latex
 esttab FE_polemp_intermed_0 FE_polemp_intermed_1 FE_polemp_intermed_2 FE_polemp_intermed_3 FE_polemp_intermed_4 FE_polemp_intermed_5 ///
 		FE_polemp_intermed_10 FE_polemp_intermed_15 using "Tables/intermpolempowerment.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 62\\(current)}" "\shortstack{Model 63\\(1-year)}" "\shortstack{Model 64\\(2-year)}" "\shortstack{Model 65\\(3-year)}" ///
@@ -1031,8 +1035,11 @@ esttab FE_polemp_intermed_0 FE_polemp_intermed_1 FE_polemp_intermed_2 FE_polemp_
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of intermediate vatiable on future changes in women's empowerment\label{intermpolempowerment})  replace 
 	
 
-	
-*** for Appendix  and footnote
+
+******************************************************************
+************************* for Appendix B and C  **********************
+
+********************** Appendix Table B1: Model 70-77
 
 * looking at future year-on-year changes to see if war states end up performing less well in future (just better year-on-year changes up to 5 years out)
 *For appendix
@@ -1052,13 +1059,15 @@ xtreg f10d.polempowerment warDummy l.polempowerment s.polity2 l.polity2 s.lpec l
 estimates store FE_polemp_d10
 xtreg f15d.polempowerment warDummy l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polemp_d15	
-
-
 esttab FE_polemp_d0 FE_polemp_d1 FE_polemp_d2 FE_polemp_d3 FE_polemp_d4 FE_polemp_d5 ///
 		FE_polemp_d10 FE_polemp_d15 using "Tables/fyearonyearpolempower.tex",se parentheses ///
 	nonumbers mtitles("\shortstack{Model 70\\(current)}" "\shortstack{Model 71\\(1-year)}" "\shortstack{Model 72\\(2-year)}" "\shortstack{Model 73\\(3-year)}" ///
 	"\shortstack{Model 74\\(4-year)}" "\shortstack{Model 75\\(5-year)}" "\shortstack{Model 76\\(10-year)}" "\shortstack{Model 77\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of war on future year-on-year changes in women's empowerment\label{fyearonyearpolempower})  replace 
+ 
+
+
+********************** Appendix Table B2: Model 78-85 
 	
 *** footnote: cumulative deaths
 xtreg s.polempowerment ln_bdeaths_cum l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
@@ -1082,6 +1091,9 @@ esttab FE_polemp_bd_cum_0 FE_polemp_bd_cum_1 FE_polemp_bd_cum_2 FE_polemp_bd_cum
 	nonumbers mtitles("\shortstack{Model 78\\(current)}" "\shortstack{Model 79\\(1-year)}" "\shortstack{Model 80\\(2-year)}" "\shortstack{Model 81\\(3-year)}" ///
 	"\shortstack{Model 82\\(4-year)}" "\shortstack{Model 83\\(5-year)}" "\shortstack{Model 84\\(10-year)}" "\shortstack{Model 85\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of cumulative battle deaths on future  in women's empowerment\label{culmudeaths})  replace 
+
+
+********************** Appendix Table B3: Model 86-93 
 		
 ** difference in types of war: interstate, intrastate, and existential war
 *Intrastate war
@@ -1107,8 +1119,8 @@ esttab FE_polemp_intra_0 FE_polemp_intra_1 FE_polemp_intra_2 FE_polemp_intra_3 F
 	"\shortstack{Model 90\\(4-year)}" "\shortstack{Model 91\\(5-year)}" "\shortstack{Model 92\\(10-year)}" "\shortstack{Model 93\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of intrastate war on future changes in women's empowerment\label{intrawarpolempower})  replace 
 
-	
-	
+
+********************** Appendix Table B4: Model 94-101 	
 ** Inter-state war
 xtreg s.polempowerment newinter ongoinginter recentinter l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polemp_inter_0
@@ -1134,6 +1146,7 @@ esttab FE_polemp_inter_0 FE_polemp_inter_1 FE_polemp_inter_2 FE_polemp_inter_3 F
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of interstate war on future changes in women's empowerment\label{interwarpolempower})  replace 
 
 
+********************** Appendix Table B5: Model 102-109 
 *Existential war (short term negative)
 xtreg s.polempowerment newexist ongoingexist recentexist l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polemp_exist_0
@@ -1157,6 +1170,10 @@ esttab FE_polemp_exist_0 FE_polemp_exist_1 FE_polemp_exist_2 FE_polemp_exist_3 F
 	nonumbers mtitles("\shortstack{Model 102\\(current)}" "\shortstack{Model 103\\(1-year)}" "\shortstack{Model 104\\(2-year)}" "\shortstack{Model 105\\(3-year)}" ///
 	"\shortstack{Model 106\\(4-year)}" "\shortstack{Model 107\\(5-year)}" "\shortstack{Model 108\\(10-year)}" "\shortstack{Model 109\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of existential war on future changes in women's empowerment\label{existentialwarpolempower})  replace 
+
+
+
+********************** Appendix Table B6: Model 110-117 
 
 ** interstate & intrastate war on fertility rate : footnote appendix
 *intrastate
@@ -1183,7 +1200,7 @@ esttab FE_fertility_intra_0 FE_fertility_intra_1 FE_fertility_intra_2 FE_fertili
 	"\shortstack{Model 114\\(4-year)}" "\shortstack{Model 115\\(5-year)}" "\shortstack{Model 116\\(10-year)}" "\shortstack{Model 117\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of intrastate war on future changes in fertility rates \label{intrawarfertility})  replace 
 
-
+********************** Appendix Table B7: Model 102-109 
 *interstate
 xtreg s.WBfertility inter_warDummy l.WBfertility s.polity2 l.polity2 s.lpec l.lpec year l.neighborWBfertility , fe  vce(cluster ccode)
 estimates store FE_fertility_inter_0
@@ -1208,6 +1225,7 @@ esttab FE_fertility_inter_0 FE_fertility_inter_1 FE_fertility_inter_2 FE_fertili
 	"\shortstack{Model 122\\(4-year)}" "\shortstack{Model 123\\(5-year)}" "\shortstack{Model 124\\(10-year)}" "\shortstack{Model 125\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of interstate war on future changes in fertility rates \label{interwarfertility})  replace 
 
+********************** Appendix Table B8: Model 126-133 
  ** battle deaths and fertility rate
 xtreg s.WBfertility ln_bdeaths l.WBfertility s.polity2 l.polity2 s.lpec l.lpec year  l.neighborWBfertility, fe  vce(cluster ccode)
 estimates store FE_fertility_bd_0
@@ -1255,8 +1273,9 @@ esttab FE_civilparticip_0 FE_civilparticip_1 FE_civilparticip_2 FE_civilparticip
 	nonumbers mtitles("\shortstack{Model 134\\(current)}" "\shortstack{Model 135\\(1-year)}" "\shortstack{Model 136\\(2-year)}" "\shortstack{Model 137\\(3-year)}" ///
 	"\shortstack{Model 138\\(4-year)}" "\shortstack{Model 139\\(5-year)}" "\shortstack{Model 140\\(10-year)}" "\shortstack{Model 141\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of types of war on future changes in civil society participation \label{fecivilparticip})  replace 
-
  
+
+********************** Appendix Table B12: Model 159 --166
 *Terr threat instead of war (not much here, and if there is, it is a positive affect)
 *For appendix： Terr threat  without war
 xtreg s.polempowerment s.terrthreat l.terrthreat l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
@@ -1281,6 +1300,8 @@ esttab FE_polempnowar_0 FE_polempnowar_1 FE_polempnowar_2 FE_polempnowar_3 FE_po
 	"\shortstack{Model 146\\(4-year)}" "\shortstack{Model 147\\(5-year)}" "\shortstack{Model 148\\(10-year)}" "\shortstack{Model 149\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of territorial threat  on future changes in women's empowerment(without war) \label{fepolempnowar})  replace 
 
+
+********************** Appendix Table B13: Model 167-174
 *Terr threat  with war
 xtreg s.polempowerment s.terrthreat l.terrthreat warDummy l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polempwar_0
@@ -1304,6 +1325,9 @@ esttab FE_polempwar_0 FE_polempwar_1 FE_polempwar_2 FE_polempwar_3 FE_polempwar_
 	"\shortstack{Model 154\\(4-year)}" "\shortstack{Model 155\\(5-year)}" "\shortstack{Model 156\\(10-year)}" "\shortstack{Model 157\\(15-year)}") ///
  label star(* 0.10 ** 0.05 *** 0.01) title(Fixed effect model of the effect of  territorial threat  on future changes in women's empowerment(with war) \label{fepolempwar})  replace 
 
+
+
+********************** Appendix Table B14: Model 175-1 -- 175-8 
  *** women's empowerment on the interaction of  the change in power consumption variable and the war variable
 *Interaction with economic growth
 xtreg s.polempowerment warDummy i.warDummy#c.s.lpec l.polempowerment s.polity2 l.polity2 s.lpec l.lpec year l.neighborpolempowerment, fe vce(cluster ccode)
@@ -1327,6 +1351,9 @@ esttab interaction_0 interaction_1 interaction_2 interaction_3 interaction_4 int
  nonumbers mtitles("\shortstack{Model 175-1\\(current)}" "\shortstack{Model 175-2\\(1-year)}" "\shortstack{Model 175-3\\(2-year)}" "\shortstack{Model 175-4\\(3-year)}" ///
 	"\shortstack{Model 175-5\\(4-year)}" "\shortstack{Model 175-6\\(5-year)}" "\shortstack{Model 175-7\\(10-year)}" "\shortstack{Model 175-8\\(15-year)}") ///
  title(Interaction effects between change in energy consumption and war on changes in women's political empowerment \label{interaction})  replace 
+
+
+
 
 
 ********************** Robustness checks
