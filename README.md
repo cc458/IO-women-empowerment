@@ -2,19 +2,17 @@
 Replication materials for Kaitlyn Webster, Chong Chen, and Kyle Beardsley, "Conflict, Peace, and the Evolution of Women's Empowerment", International Organization.
 
 
-For questions contact the corresponding author: XXX 
+For questions contact the authors: Kaitlyn Webster (kaitlyn.webster@duke.edu), Chong Chen (chong.chen@duke.edu) and Kyle Beardsley (kyle.beardsley@duke.edu).
 
 All models are estimated using STATA 15SE; All Figures are created using R version 3.4.3
 
-You need to set your working directories in Stata and R.
+You need to set your working directories in both Stata and R.
 
 Files and scripts
 ------
 
 `Data`
 * `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects.
-* `emp_imputeBays.dta` - imputed data for empowerment
-* `fert_imputeBays.dta` - imputed data for fertility 
 
 
 `Figures`
