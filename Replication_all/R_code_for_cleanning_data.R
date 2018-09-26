@@ -31,7 +31,7 @@ library(readxl)
 library(stringr)
 
 #make sure your working directory is this IO-women-empowerment
-setwd("~/IO-women-empowerment")
+#setwd("IO-women-empowerment")
 
 # Create clean_date directory for cleanning variables
 invisible(sapply(c("clean_data"), function(d) {
