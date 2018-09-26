@@ -75,7 +75,7 @@ label variable neighboring_riots "Neigh.riots"
 label variable neighboring_demonstration "neigh.demonstrations"
 
 
- label variable neighborpolempowerment "Neighboring political empowerment" 
+label variable neighborpolempowerment "Neighboring political empowerment" 
 
 
 label variable WBlaborpartic_femal "Women.labor.force.part.rate"
@@ -213,9 +213,6 @@ gen s_lWBfepop = s.lWBfepop
 
 ///// Save a copy of the data for simulation
 save "Data/hierarchypaperdata_copy.dta",replace
-
-
-
 
 **********************
 *Stationarity tests: Can reject the null that all panels have unit roots

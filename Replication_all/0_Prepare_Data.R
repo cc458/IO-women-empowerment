@@ -34,9 +34,10 @@ library(stringr)
 #setwd("IO-women-empowerment")
 
 # Create clean_date directory for cleanning variables
-invisible(sapply(c("clean_data"), function(d) {
+invisible(sapply(c("clean_data","Tables","Figures"), function(d) {
        if (!dir.exists(d)) dir.create(d)
 }))
+
 
 #############################################################################
 # Step 1: create time-series cross-sectiona data from 1900-2015
