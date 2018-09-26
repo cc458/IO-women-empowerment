@@ -57,7 +57,7 @@ state.panel <- state.panel %>%
 
 hierarchypaperdata <- rbind(state.panel, GWstates_panel)
 ##add COW code
-library(countrycode)wo
+library(countrycode)
 hierarchypaperdata$COWcode <- countrycode(hierarchypaperdata$country.name, "country.name", "cown")
 
 save(hierarchypaperdata, file = "./clean_data/hierarchypaperdata.RData")
