@@ -8,21 +8,37 @@ All models are estimated using STATA 15SE; All Figures are created using R versi
 
 You need to set your working directories in both Stata and R.
 
+
+There are two parts of replication process: (1) Code in `Replication_all` folder contains all R and Stata scripts that clean, recode, and analyze the data. Thus, you need to use the origina data files in the `raw_data` folder to create the data for all tables and figures. (2) Code in `Rcode_paper` foler contains all R and Stata scripts that are run based on the cleaned version of the data by the authors. In this case, you don't need to create the data by yoursefl.  
+
+
 Files and scripts
 ------
 
 `Data`
-* `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects.
+* `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects. It is recommendated to use the code in `Rcode_paper`. 
+* `simulation` folder: txt files stored from the estimated results using the Stata do file and will be used for making figures.
 
 
 `Figures`
 * Contains the graphics used in the article.
 
-`Code`
+`Tables`
+* Contains the latex tables in the appendix
+
+`Rcode_paper`
 * `1_Analysis.do` – Stata 15SE code to replicate all tables; State Code to generate simulation parameters
 * `2_Figures_1-2.R` – R code to reproduce Figures 1-2
 * `3_Figures_3-7.R` – R code to reproduce Figures 3-7
 
+`raw_data`
+* All original data downloaded from COW, Polity, VDEM and etc. You will need this only if you want to use the scripts in `Replication_all` folder.
+
+`Replication_all`
+* `0_Prepare_Data.R` - R code to create, clean and merge orginal datasets
+* `1_Stata_Anlysis.do`- Stata code to recode variables based on the `0_Prepare_Data.R` output; and code to replicate all tables; State Code to generate simulation parameters
+* `2_Figures_1-2.R` – R code to reproduce Figures 1-2
+* `3_Figures_3-7.R` – R code to reproduce Figures 3-7 
 
 `R sessionInfo()`
 
