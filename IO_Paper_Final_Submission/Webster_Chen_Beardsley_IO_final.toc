@@ -1,5 +1,0 @@
-\contentsline {section}{Appendix}{I}{subfigure.8.5}
-\contentsline {section}{\numberline {A}Main Tables for Figures 3-7}{I}{appendix.A}
-\contentsline {section}{\numberline {B}Supplementary Tables for Main Results and Figures}{B-8}{appendix.B}
-\contentsline {section}{\numberline {C}Robustness Checks and Additional Mechanisms}{C-17}{appendix.C}
-\contentsline {section}{\numberline {D}Specification of the Endogenous Treatment Effects Regression Model}{D-26}{appendix.D}

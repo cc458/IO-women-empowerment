@@ -10,7 +10,7 @@ You need to set your working directories in both Stata and R.
 
 There are two parts of replication process: (1) The `Code` folder contains all R and Stata scripts that are used to produce the tables and figures; (2) The `Code_Prepare` folder contains R and Stata scripts that are used to prepare the data from scratch. 
 
-Notice that if readers are interested in the data preparation and cleaning, they need to put all original data files in the `raw_data` folder. However, we are not allowed to upload the raw data from Banks(2014), World Banks, COW and etc. Readers are recommended to download them directly. Please contact the authors if you have problems finding them. We've provided references to get them in the R script.
+Notice that if readers are interested in the data preparation and cleaning, they need to put all original data files in the `raw_data` folder. However, we are not allowed to upload the raw data from Banks(2014), World Banks, COW, etc. Readers are recommended to download them directly. Please contact the authors if you have problems finding them. We've provided references to get them in the R script.
 
 In cases where readers are only interested in the analysis part, the scripts in `Code_Analysis` folder will be enough. 
 
@@ -19,7 +19,7 @@ Files and scripts
 ------
 `Data`
 * `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects.  
-* `simulation` folder: txt files stored from the estimated results using the Stata `do file` and will be used for making figures.
+* `simulation` folder: txt files stored from the estimated results using the Stata `do file`, which will be used for making figures.
 
 `Code`
 * `1_Analysis.do` – Stata 15SE code to replicate all tables; State Code to generate simulation parameters
@@ -31,7 +31,7 @@ Files and scripts
 *`0_Recode_variables.do`– Stata code to recode variables. 
 
 `raw_data`
-* All original data downloaded from COW, Polity, VDEM and etc. You will need this data folder only if you want to use the script `0_Prepare_Data.R`. 
+* All original data downloaded from COW, Polity, VDEM, etc. You will need this data folder only if you want to use the script `0_Prepare_Data.R`. 
 
 `clean_data`
 * Folder to store the data output from the `0_Prepare_Data.R` script.
