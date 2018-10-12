@@ -1,2 +1,0 @@
-fe_irregular1	fe_irregular2	fe_irregular3	fe_irregular4	fe_irregular5	fe_irregular6	fe_irregular7
-.0722835	-.007671	-.000923	-.0102923	-.0022843	-.0003358	.7174364

@@ -1,0 +1,2 @@
+fe_polembd51	fe_polembd52	fe_polembd53	fe_polembd54	fe_polembd55	fe_polembd56	fe_polembd57	fe_polembd58	fe_polembd59
+-.000159	-.3600831	.0048341	.0022754	-.0011602	.0029331	.0021052	.0290192	-3.966704

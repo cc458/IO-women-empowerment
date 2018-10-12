@@ -1,0 +1,2 @@
+fe_polemwardur41	fe_polemwardur42	fe_polemwardur43	fe_polemwardur44	fe_polemwardur45	fe_polemwardur46	fe_polemwardur47	fe_polemwardur48	fe_polemwardur49
+.0019784	-.2358895	.0050938	.0013017	-.0016847	.0017671	.0013326	.0194504	-2.497891

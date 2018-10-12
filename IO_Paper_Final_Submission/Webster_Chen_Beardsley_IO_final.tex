@@ -1,0 +1,629 @@
+\documentclass [12pt] {article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in] {geometry}
+\usepackage[]{graphicx}\usepackage[]{color}
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\usepackage{alltt}
+\usepackage{standalone}
+\usepackage{amsfonts,amsmath, amssymb,bm}
+\usepackage{graphicx,subfigure} %,float}
+\usepackage{setspace}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc} %french 
+\usepackage{csquotes}
+\usepackage{floatrow}
+\usepackage{verbatimbox} %obtain-verbatim-text-in-a-footnote
+\floatsetup[table]{capposition=top}
+\floatsetup[figure]{capposition=top}
+\usepackage{longtable}
+\usepackage{indentfirst}
+\usepackage[labelfont=bf, labelsep=period]{caption} %a dot instead of colon in table/figure captions
+\usepackage[font=bf]{caption} %bold all captions
+\usepackage{titlesec} %add dot after \section number
+\titlelabel{\thetitle.\enskip} %add dot after \section number \enskip, \quad, \qquad leave a horizontal space of respectively half an em, one em and two ems
+\usepackage[colorlinks=true, linkcolor=blue, anchorcolor = blue, urlcolor  = blue, citecolor = blue]{hyperref}
+\usepackage{dcolumn}
+\usepackage[sort,comma,semicolon]{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+\usepackage{framed} %for framed box%
+\newcolumntype{d} [1]{D{.}{.}{#1}}
+\usepackage{fancyhdr} %loads the package
+\usepackage{fancyvrb}
+\pagestyle{fancy} %tells the Latex you are going to make changes to the header/footer
+\fancyhf{} %clears previous formatting
+\rfoot{\thepage} %put the page number on the right side of the footer
+\renewcommand{\headrulewidth}{0pt}
+\setcounter{page} {0}
+\usepackage[title,toc,page, header]{appendix}
+\usepackage{minitoc}
+\usepackage[section]{placeins}
+\usepackage{lscape}
+\usepackage{listings} %%use for R, Java code
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=false,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{hanging}
+\usetikzlibrary{arrows,positioning}
+\usepackage{xspace}
+\usepackage{pdfpages} 
+
+%appendix numbering
+\newcommand{\appendixpagenumbering}{
+  \break
+  \pagenumbering{arabic}
+  \renewcommand{\thepage}{\thesection-\arabic{page}}
+}
+
+
+\renewcommand{\footnotesize}{\scriptsize} % 10pt footnotes in 11pt doc instead of 9pt
+
+\usepackage[hang,bottom, flushmargin, splitrule, multiple]{footmisc}
+\setlength{\footnotemargin}{0pt} % set the marginal  hanging indent
+
+\usepackage{etoolbox}
+
+\makeatletter%%
+\patchcmd{\@makefntext}{%
+\ifFN@hangfoot
+\bgroup}%
+{%
+\ifFN@hangfoot
+\bgroup\def\@makefnmark{\rlap{\normalfont\@thefnmark.}}}{}{}%
+% %%%
+\patchcmd{\@makefntext}{%
+\ifdim\footnotemargin>\z@
+\hb@xt@ \footnotemargin{\hss\@makefnmark}}%
+{%
+\ifdim\footnotemargin>\z@
+\hb@xt@ \footnotemargin{\@makefnmark\hss}}{}{}%
+\makeatother
+
+\setlength{\footnotemargin}{1.25em} % Between marker and text
+\setlength{\skip\footins}{1\baselineskip} % Between main text and note rule
+\newcommand{\A}{\ensuremath{\mathcal{A}}\xspace}
+\newcommand{\B}{\ensuremath{\mathcal{B}}\xspace}
+\newcommand\pa[1]{\ensuremath{\left(#1\right)}}
+\graphicspath{{figures/}} %path for inputting graphics
+
+
+\begin {document}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\title{ \Large{Conflict, Peace, and the Evolution of Women's Empowerment}\footnotemark[1]\vspace*{.2in}}
+\author{Kaitlyn Webster \hspace*{.2in} Chong Chen \hspace*{.2in} Kyle Beardsley \vspace*{.3in}}
+\date{Word count: 13980}
+%\date{}
+\footnotetext[1] {Authors are listed in reverse alphabetical order with implied equal authorship.}
+\maketitle
+\thispagestyle{empty}
+\singlespacing
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\newpage
+%Acknowledgment page
+\renewcommand{\abstractname}{\large Acknowledgments}
+\begin{abstract}
+  \bigskip
+	\noindent
+	Earlier versions of this project were presented at research seminars hosted by the University of Toronto and Duke University, at the 113th Annual Meeting of the American Political Science Association in San Francisco (31 August - 3 September 2017), and at workshops hosted by the Folke Bernadotte Academy in Vienna (3-4 October 2016), Oslo (19-20 January 2018) and San Francisco (7-9 April 2018). We are grateful for the constructive comments that participants at these conferences and workshops provided. We especially thank Sabrina Karim, Amelia Hoover-Green, Dara Cohen, Zoe Marks, Ragnhild Nord\r{a}s, Erik Melander, Elin Bjarneg\r{a}rd, Angela
+Muvumba-Sellstr\"{o}m, Louise Olsson, Oliver Kaplan, Alyssa Prorok, Mark Manger, Peter Feaver, and David Siegel. We are also grateful for the comments provided by the anonymous reviewers and the editors, Erik Voeten and Kenneth Schultz.
+\end{abstract}
+
+\newpage
+\renewcommand{\abstractname}{\large Author Affiliation and Email address}
+\begin{abstract}
+  \bigskip
+	Kaitlyn Webster, PhD Candidate, Department of Political Science, Duke University. Email: \href{mailto:kaitlyn.webster@duke.edu}{kaitlyn.webster@duke.edu}.\\
+	
+	Chong Chen, PhD Candidate, Department of Political Science, Duke University. Email: \href{mailto:chong.chen@duke.edu}{chong.chen@duke.edu}.\\
+	
+	Kyle Beardsley, Associate Professor, Department of Political Science, Duke University. Email: \href{mailto:kyle.beardsley@duke.edu}{kyle.beardsley@duke.edu}.	
+\end{abstract}
+
+
+%Abstract page
+\newpage
+\begin{center}
+{\Large Conflict, Peace, and the Evolution of Women's Empowerment}\vspace*{.2in}\\
+
+Kaitlyn Webster \hspace*{.2in} Chong Chen \hspace*{.2in} Kyle Beardsley \vspace*{.3in}\\
+\end{center}
+
+\renewcommand{\abstractname}{\large Abstract}
+\begin{abstract}
+  \bigskip
+	\noindent
+How do periods of conflict and peace shape women's empowerment around the world? While existing studies have demonstrated that gender inequalities contribute to the propensity for armed conflict, we consider how the anticipation and realization of armed conflict shape women's opportunities for influence in society. Some scholars have pointed to the role that militarization and threat play in entrenching male dominance, while others have argued that periods of warfare can upend existing gender hierarchical orders. We posit mechanisms by which the preparation for and experiences during war affect change in women's empowerment; then, we develop and test observable implications using cross-national data from 1900 to 2015. We find that, at least in the short- and medium-term, warfare can disrupt social institutions and lead to an increase in women's empowerment via mechanisms related to role shifts across society and political shifts catalyzed by war. Reforming institutions and mainstreaming gender during peace processes stand to have important legacies for gender power relations in post-conflict societies, though much more may be needed for more permanent change.
+\end{abstract}
+
+
+\newpage
+\setlength{\parskip}{-2em}
+\doublespacing
+\setcounter{page} {1}
+
+	
+\section*{Introduction}
+\label{intro}
+\vspace*{.2in}
+
+
+Countries with relatively strong records on gender equality and women's representation in politics tend to be less conflict-prone than those with poorer records. This empirical relationship has emerged from recent studies of gender in international relations and is quite robust.\footnote{See \Citealt{hudson2012sex,hudson2009heart,hudson2002surplus,melander2005gender,melander2005political,bjarnegaard2011disentangling,bjarnegaard2013revisiting,wood:ramirez,shair2017governing}.} These studies, however, overlook the opposite causal direction: how conflict and peace affect underlying gender inequalities. Ignoring the potential for conflict and peace to influence gender inequalities might contribute to invalid inferences when attributing a causal direction to an inequality-conflict correlation. Moreover, the potential for conflict to  reinforce or undermine gender norms has ramifications for the prevalence of both gender inequality and armed conflict.\\
+
+So, does war exacerbate domestic gender inequality as men are called to arms?\footnote{We recognize important variation in how much societies call on women to serve in national defense and engage with related research below, but we also recognize male dominance in security sectors worldwide.} Or might war provide opportunities for women to have greater political, social, and/or economic responsibilities, as suggested by dominant narratives in the United States about World War I catalyzing women's suffrage and World War II broadening women's labor force participation? Some strands of scholarship contend that war opens up opportunities for women's empowerment, while other work has argued that militarization and external threats to a country reinforce that society's gender inequalities.\footnote{We discuss the respective literatures below.}  \\
+
+This paper specifically focuses on over-time changes in women's empowerment, which we define as the extent to which women have influence in political and social spaces. Variation in women's empowerment is one component of variation in gender (in)equality and is a manifestation of variation in domestic gender hierarchy---which we define as a power imbalance that, when patriarchal, privileges men generally, as well as masculine and feminine characteristics that support a male-dominant order.\footnote{That is, patriarchy is a specific form of gender hierarchy.}  Through analyzing how the preparation for and experiences during war shape women's empowerment, we contribute to the understanding of both cross-national and cross-temporal variation in domestic gender hierarchy in the modern era. \\
+
+We draw on existing research to examine several potential mechanisms for how conflict and peace might influence women's empowerment, including: militarization, demographic changes, changes in social orders, and changes in political orders. Then, we identify observable implications of each and test them on a cross-national dataset that spans 1900-2015. We find strong support for arguments positing that, at least in the short- and medium-term, war shakes up established social and political orders and creates an opportunity for gains in women's empowerment. At the same time, we do not find conclusive evidence that such gains persist beyond ten or fifteen years. \\
+
+We conclude that domestic gender hierarchies are indeed robust equilibria and resistant to change. Societies often need a major catalyst---like war---to shake up the social and political orders. In the presentation of the findings, we reflect at some length on the examples of El Salvador, Liberia, and China, which illustrate some of the proposed mechanisms and also point to some important limitations to how war relates to changes in women's empowerment.\footnote{We have selected these particular cases---El Salvador, Liberia, and China---to provide variation across regions, time period, and type of conflict. These are not meant to be complete case studies---which is precluded by space constraints---or vehicles to systematically test the hypotheses, but rather an integration with existing rich case knowledge related to the experiences of women amidst armed contestation.} While each demonstrates how war can open up opportunity for women's empowerment, they also underline war's destructive power for both women and men and the potential for gains in women's empowerment to be short-lived; our study does not imply that war is a net positive for societies nor that shaking up the social and political orders will inevitably result in more egalitarian ones, especially in the long run. One takeaway from our study, which we return to in the conclusion, is that reforming institutions and mainstreaming gender during peace processes has important legacies for gender power relations in post-conflict societies, although additional effort may be needed to keep up the momentum for reforms and the establishment of more permanent equilibria.\\
+
+
+\section*{Conflict and Change in Gender Hierarchies}
+\label{theory}
+\vspace*{.2in}
+
+War's ability to transform social power inequalities has been a topic of rich scholarship.\footnote{See especially \Citealt{malevsevic2010sociology,williams2003wars}.} Relatedly, Charles Tilly has prominently argued that war and the preparation for war have shaped the organization of states and that the organization of states has shaped the conduct of warfare.\footnote{\Citealt{tilly1992}.} Recognizing that war and social orders can be mutually constitutive, we attempt to cut into the interchange and consider war's social legacies for gender power inequalities.\\
+
+Focusing on women's empowerment as a manifestation of (attenuating) gender hierarchy, we draw on strands of scholarship that produce different expectations. As we explore below, one implication from perspectives linking militarization and threat to gender hierarchy is that we should observe decreasing levels of women's empowerment in societies facing major security concerns. Militarization, or the growth of a country's security sector, and external threats are separate from active conflict: they can happen during war, but they also occur in anticipation and preparation for armed struggle.\footnote{We assume that militarization is correlated with threat, but militarization is not an indicator itself of threat. That is, a lack of military investment does not necessarily imply a lack of threat, as highly militarized societies might excel in general deterrence of adversaries and one symptom of state failure, which often occurs in conjunction with armed threats, would be a collapsing security sector.} We should therefore see the anticipation of war as a \emph{hindrance} to women's empowerment. Another perspective---not necessarily mutually exclusive from the first\footnote{Both lines of argument could be valid, especially if the preparation for warfare is separated from the actual participation in warfare. When war preparation does not actually lead to war occurrence---for example because of deterrence---then it is not contradictory for militarization to have one effect and for the experience of war to have another.}---considers how major shifts in a society's ability to function under the existing order, as might happen amidst destructive war, can create space for women's empowerment and lead to the expectation that war functions as a \emph{catalyst} for women's empowerment.\\
+
+\subsection*{War's Anticipation as a Hindrance to Women's Empowerment}
+\vspace*{.2in}
+
+One school of thought considers investment in security and gender hierarchy as mutually constitutive and reinforcing: societies that highly value security commit a disproportionate amount of resources toward the education and social development of male leaders and fighters because of the perception that such investment produces greater returns compared to alternative allocations that invest more in girls and women.\footnote{Note that the investments need not be in terms of material resources but can also be in terms of the allocation of social value.} Specifically drawing from social role theory, militarization and the expectation of fighting creates and perpetuates gender hierarchy as a means to enhance a society's war-fighting effort.\footnote{\Citealt{enloe2014bananas,enloe1993morning,enloe2016globalization}.} This process entrenches gendered roles, with men valorized for their potential heroism in war as protectors and women valorized for their potential supporting efforts and their need for protection.\footnote{\Citealt{stiehm1982protected,joshua2001war,elshtain1987women,moran2010gender}.} \citeauthor{pateman2014sexual} argues that a gendered social contract emerges in which men are expected to protect and in return receive legitimate authority from the women who benefit from the order provided.\footnote{\Citealt{pateman2014sexual}.} In these ways, the preparation for war fundamentally shapes the distribution of power between those that are normally involved in security production (men in most societies past and present) and those that are not (women).  Relatedly, the post-war environment might be associated with backlash against any gains in women's rights and empowerment experienced during war.\footnote{\Citealt{pankhurst2003sex, pankhurst:2012}.}\\
+
+The implication from this logic is that periods of heightened readiness for physical protection entrench social support for gender hierarchy. For example, \citeauthor{schroeder2015security} argues that interstate conflict and rivalry decrease women's political representation because women are seen as less capable than men of leadership under security threats.\footnote{\Citealt{schroeder2015security}.} \citeauthor{barnes:obrien} similarly find that states that are engaged in military disputes and spending more on their militaries are less likely to appoint women as defense ministers.\footnote{\Citealt{barnes:obrien}.}  \\
+
+The argument that the anticipation of war hinders women's empowerment suggests two potential mechanisms: militarization and a society's threat perception.  Building on the existing scholarship discussed above, militarization contributes to gender power imbalances as societal investments in the security sector increase---men are privileged and expected to lead while women are expected to serve in supporting roles.  The key implications here are that increases in the size and scope of the military should be correlated with decreases in women's empowerment. An important caveat is that the entrenchment of gender inequality might occur in the absence of ongoing or recent armed conflict, so long as a society is still investing in its military. This line of reasoning leads to two closely linked hypotheses: in the first, militarization has an independent effect from war, and in the second, militarization is an intermediate step on the pathway from war to social changes.\\ \\
+
+\emph{Militarization Hypothesis: Increases in the size of the security sector, regardless of whether there is an active conflict, will lead to decreases in women's empowerment.} \\ \\
+
+\emph{Militarization as an Intermediate Step Hypothesis: Periods of war will lead to increases in the size of the security sector, which, in turn, will lead to decreases in women's empowerment.} \\ \\
+
+Similarly, the threat perception mechanism suggests that when a polity faces a security threat, its citizens prioritize their security.\footnote{For example, see \Citealt{pateman2014sexual,schroeder2015security,tir2017painting}.} Prolonged peace, in contrast, can erode the underlying social power imbalances as alternative social orders to militarization become attractive and role expectations change, however slowly. Note that here we mean \textit{positive} peace---a type of peace that is more than the absence of violence and includes cooperation and trust among societal groups and states---since a perception of threat can exist without active armed conflict. This expectation that positive peace can undermine existing social hierarchies is consistent with scholarship positing that reduced security threats create the potential for a post-national, cosmopolitan orientation of security organizations that, in turn, become more hospitable to gender-based reforms.\footnote{\Citealt{kronsell2012gender,elliott2004forces,barnes:obrien}.}\\
+
+During periods of high threat, defense readiness increases in value, with a corresponding emphasis on masculine values and characteristics. Note that this often overlaps with the first mechanism -- militarization can be a specific response to perceived threats -- but the force acting on women's empowerment is broader in this case. Roles traditionally associated with women and femininity are de-emphasized, which can be compounded by civil liberties reductions in the name of defending the homeland. This effect is most pertinent for external threats because internal threats are more likely to disrupt, rather than entrench, traditional social norms and institutions. \citeauthor{tir2017painting} add that during periods of external threat, although the government and public may expect all citizens to rally around the flag, there might be an increase in skepticism of women because of their presumed peaceful nature and expected opposition to war.\footnote{\Citealt[252]{tir2017painting}. See also \Citealt{barnes:obrien}.} Rally around the flag can mean rally around nostalgia for traditional, ``men-as-protectors'' social orders.\footnote{\Citealt{mackenzie:foster}.} Here the observable implications are fairly precise: we expect the threat perception mechanism to be strongest during interstate wars and, more generally, during periods of threat from external adversaries (contrary to the militarization mechanism, which can operate in the absence of a specific external threat). \\ \\
+
+
+\emph{Threat Hypothesis: Increases in the external armed threats to a society will lead to decreases in women's empowerment.} \\ \\
+
+\subsection*{War as a Catalyst for Women's Empowerment}
+\vspace*{.2in}
+
+Another expectation emerges if we consider war's potential to disrupt social institutions. For many scholars, gender hierarchy is institutionalized---it is embedded in social structures and reinforced by both explicit and implicit norms and practices. If this is the case, then it might require massive disruption to normal social functioning to depart from an equilibrium of unequal power distribution toward greater women's empowerment. \\ 
+
+Some scholars have posited that war can disrupt gender hierarchy, at least in the short term.\footnote{\Citealt{wood2008social,wood2015social,stiehm2010theses,hughes2009armed,tripp2015women,hughes2015civil,mageza2015mobilizing,meintjes2001aftermath,berry2015bright,berry2018war}.} For example, as men die in combat and mobilize to fight, opportunities emerge for women to enter traditionally male-dominated vocational and social roles. With a greater representation of women in spaces traditionally only open to men, women become valued for a wider array of characteristics and for performing more functions. \\
+
+Aside from the opening of space for women's representation, war can lead citizens to critique the existing gender hierarchy. Resonating with the earlier arguments related to militarization and threat, if a male-dominant order is justified by a logic of protection, then war's occurrence might cause citizens to first question if the existing order has failed to protect and then consider alternative social orders. For example, Ellen Johnson Sirleaf, when reflecting on why she felt Liberia needed a woman president after a long and traumatic war, observed that ``the country had been led by men for 150 years---and look where that had gotten us.''\footnote{\Citealt[261]{johnson2009child}.} \\
+
+The argument that war can disrupt existing social orders and open up space for women's empowerment requires a few important qualifications. First, one scope condition for this argument is that there has to be some opportunity for the order that replaces the old one to be more egalitarian. The argument might not apply to pre-modern periods in which emerging global norms were not contributing to widespread trends pointing to greater women's empowerment.\footnote{Similarly, \Citealt{tripp2015women} argues that improvements in international norms and practices are important to explaining post-war gains in the representation of women in Africa. In the discussion of our data below, we show that women's empowerment trends positively over time throughout much of the world during the time period of our study.} \\
+
+Second, better representation does not easily translate into empowerment,\footnote{\Citealt{reingold2003}.} so the argument is more one of necessity than sufficiency. Without improvements in women's representation in key political, economic, and social spaces, improvements in women's empowerment would be infeasible. Moreover, we recognize the important downstream effects from changes in women's representation that can contribute to women's empowerment.\footnote{\Citealt{hughes2009armed,hughes2015civil,mageza2015mobilizing}.} For example, once women have served in key roles during times of national crisis, they gain legitimacy as relevant actors in social and political spaces, as members of society become more aware of women's capability to fulfill the gamut of social and political roles, including those with formal authority.\footnote{Women with wartime experience---whether as rebels or as community leaders---are often offered positions in a new regime (\Citealt{tripp2015women,mageza2015mobilizing}). Gains in empowerment can also be bolstered by international attention to the women's groups that mobilized during conflict (\Citealt{hughes2009armed}).}\\
+
+Third, women's empowerment gains during periods of massive social disruption are neither costless nor necessarily permanent: women's empowerment can come at the expense of massive loss of male life in combat, and/or at the expense of other under-privileged groups who are forced to serve in the military. War also negatively affects women's life and health in profound ways.\footnote{\Citealt{plumper:neumayer,urdal:che}.} Furthermore, gains during conflict could be followed by retrenchment afterwards,\footnote{\Citealt{pankhurst2003sex, pankhurst:2012}.} particularly in the daily lives of ordinary women.\footnote{For examples in Rwanda and Bosnia, see \citet{berry2015bright,berry2018war}.} The process of women's empowerment is not likely clean or linear and may exacerbate other social hierarchies, such as those based on race or class. \\
+
+Taken together, the arguments---and caveats---related to war as a catalyst for women's empowerment comprise several potential mechanisms with specific implications. First, wars can transform a country's demographics: large percentages of men often die in combat. Even in cases where women represent a noticeable percentage of fighters, men die at higher rates than women and are more likely to become prisoners during or after war.\footnote{\Citealt{hughes2009armed}.} Women could need to fill the gaps in social and political roles that men originally provided. This mechanism should hold for particularly catastrophic interstate wars, where the male death toll is so overwhelming that it leads to a dearth of men to fill the roles typically reserved for them.\footnote{Interstate wars are singled out because the battles are primarily fought by state militaries and thus have a greater potential for there to be substantial gender disparities in the number of men versus women killed.} In this case, the clear prediction would be that wars with large male population losses should be correlated with women's empowerment increases. \\ \\
+
+\emph{Demographic Shifts Hypothesis: Periods of severe interstate war will lead to decreases in male population sizes, which, in turn, will lead to increases in women's empowerment after the conflict. }\\ \\
+
+A related mechanism is the ``Rosie the Riveter'' effect. Even when war does not produce a significant demographic change, when men leave to fight during conflict, space could open up in the labor force for increased women's participation. Economic openings during wartime might then improve women's empowerment if economic activity spills over into political and social activity.  This effect should be most pronounced if the war coincides with a period of job creation (e.g., through increased defense spending), such that women are needed to meet the new labor demands. When wars occur during periods of a stagnant or contracting economy, there will be fewer opportunities for women's empowerment via this mechanism. In contrast with other mechanisms, this mechanism points to a conditional expectation such that war would only lead to empowerment via an impact on the labor market when economic growth accompanies war. This mechanism is also distinct from the demographic shifts mechanism because it should be shorter-term; women might be displaced by the men returning from military service. This is therefore a mechanism that operates most strongly during conflict, rather than before or after, and especially during severe interstate war that would displace significant proportions of men.\footnote{Severe intrastate wars are likely to be so destructive to the local economy that they would not lead to women's empowerment via this mechanism.} \\  \\
+
+\emph{Labor Shifts Hypothesis: When accompanied by increases in economic production, periods of severe interstate war will lead to short-term increases in women's empowerment.} \\ \\
+ 
+The next mechanism for the argument that war is a catalyst for women's empowerment pertains to the shaking up of entrenched social orders. If gender hierarchy (patriarchy) is an equilibrium social order, a major event like war might be necessary to force societies to select a new equilibrium. War might fundamentally transform the roles that women expect and are expected to fill in a number of ways. If women become fighters too, they could become valorized for providing protection and undermine the gender social contract. Additionally, during the conflict, women might participate more in civil society and social movements, especially in anti-war movements, gaining critical leadership experience.\footnote{\Citealt{tripp2015women}} For example, women founded and led key civil-rights groups amidst intrastate conflicts in Peru and Argentina (during the Dirty War), and they also served as the principal interlocutors with the state during civil wars in El Salvador, Sri Lanka, and Peru.\footnote{\Citealt{wood2008social}.} As women take on new roles, traditional expectations for women to primarily birth and raise children might also erode, leading to fertility rate decreases. \\
+
+The key here is that conflict opens up the opportunity for women to fundamentally change their normal social roles and positions, making the hierarchical equilibrium untenable. This mechanism differs from the demographic and labor shifts hypotheses because it is not necessarily related to the absence (temporary or permanent) of men. Additionally, the change in women's roles should continue to operate long after war is over; a new social equilibrium implies durability. This mechanism should also be particularly strong for intrastate conflicts, during which status quo power arrangements are critically challenged by armed groups and their sympathizers within society. Moreover, many rebel groups have intentionally tried to recruit women and provide them a chance to become fighters themselves.\footnote{\Citealt{thomas:wood, wood:thomas}.} For example, \citeauthor{wood2008social} finds that women comprised approximately 30 percent of rebels in civil wars in Peru, El Salvador, and Sri Lanka, and 25 percent in Sierra Leone.\footnote{\Citealt{wood2008social}.} \\  \\
+
+\emph{Roles Shift Hypothesis: Periods of war will lead to increases in women's empowerment, decreases in the fertility rate, and increases in opportunities for women to take on new social roles.} \\ \\
+
+Lastly, war might not only shake up the social order but also the political order. If a new regime emerges after conflict is over, there could be several ways for women to become more empowered. For example, with a regime change comes a demand for new political actors, and women are often seen as more legitimate post-conflict because they are perceived (correctly or not) as less responsible for the conflict.\footnote{\Citealt{hughes2009armed, hughes2015civil, tripp2015women}.} When a conflict leads to a regime change, it can also cause fundamental shifts in the government structure, most commonly through a new constitution. These new constitutions, often associated with democratic institutions, can require electoral quotas for women, improved legal status for women, and/or the implementation of proportional representation systems, which present lower barriers to entry for women. Therefore, if this mechanism is in play, we would expect to see war positively correlated with improvements in female political power, particularly after wars ending in regime change.\\  \\
+
+\emph{Political Shifts Hypothesis: Periods of war will increase the propensity for regime change, which, in turn, will lead to increases in women's empowerment.} \\ \\
+
+Table \ref{hypothesis} presents an overview of our hypotheses that arise from the different frameworks. Note that the Demographic Shifts Hypothesis, Political Shifts Hypothesis and one version of the Militarization Hypothesis imply that the respective mechanisms are intermediate processes. Moreover, the Labor Shifts Hypothesis implies a conditional (interactive) relationship. The Roles Shift Hypothesis implies more specific outcome variables.\\ 
+
+\begin{center}
+[\bf Insert Table \ref{hypothesis} about here]
+\end{center}
+\vspace*{.2in}
+
+%section for research design
+\section*{Research Design}
+\label{design}
+\subsection*{Data and Dependent Variables}
+\vspace*{.2in}
+
+The data we use cover all states in the international system from 1900 to 2015.  Our unit of analysis is the country-year. We examine changes in women's empowerment for up to 15 years, at which point the model coefficients are estimated with high uncertainty, partly because of the reduced sample size. Our data structure does not allow for the examination of longer-term, generational change in social institutions. \\
+
+The outcome of interest is the change in women's empowerment in a given country. We rely on the {\it women's political empowerment index} (\verb`v2x_gender`) from the Varieties of Democracy (V-Dem) Project.\footnote{\Citealt{coppedge2016varieties}.} The variable is a broad measure of women's influence in society: it incorporates not only political power but also civil liberties and social roles, matching well to the concept of women's empowerment in our arguments. The V-Dem Project defines {\it women's political empowerment} as ``a process of increasing capacity for women, leading to greater choice, agency, and participation in societal decision-making."\footnote{\Citealt[62]{coppedge2016varieties}.} It is the most comprehensive measure of female empowerment in the V-Dem dataset and provides advantages over many traditional measures of women's equality because it captures multiple facets of women's rights and participation.\footnote{See \Citealt{sundstrom2017women} for an overview of the construction of the index. There is reason to believe that this variable is also preferable to alternative women's empowerment variables. Existing measures lack coverage of all but the most industrialized nations (for example,  see \Citealt{cueva2006missing}) and their methodologies have repeatedly changed, making temporal comparisons difficult.} An aggregated index ranging from 0 to 1, it takes the average of three, equally-weighted, intermediate indices: the {\it women's civil liberties index} (\verb`v2x_gencl`), the {\it women's civil society participation index} (\verb`v2x_gencs`), and the {\it women's political participation index} (\verb`v2x_genpp`). According to \citeauthor{sundstrom2017women}, ``the index is based on assessments from thousands of country experts who provided ordinal  ratings for dozens of indicators."\footnote{\Citealt[322]{sundstrom2017women}. We use the V-Dem version 6.2 so that our temporal coverage spans from 1900 to 2015.} Those expert ratings are then compiled into an index using a  Bayesian item response theory model. \\
+
+For an overview of the women's empowerment variable, graphs in Panels \emph{a} and \emph{b} of Figure \ref{dv1} illustrate the geographic distributions of women's political empowerment at two points in time (1950 and 2005), while Panel \emph{c} shows the global average trend of women's empowerment from 1900 to 2015. On average, the world has evolved towards more women's political empowerment, and the rate of change has been faster since the end of World War II. Figure \ref{dv2} shows the evolution of gender equality in terms of women's political empowerment for eight countries over time.\footnote{Values are sometimes missing during periods of state failure or occupations, such as 1930s-1940s China. This means that our analysis is limited in being able to extend to situations in which warfare overlaps with state failure.} We note that change can be either drastic or gradual, suggesting that the coding picks up both major legal and constitutional reforms as well as more gradual changes in social norms.  \\
+
+
+\begin{center}
+[\bf Insert Figure \ref{dv1} about here]
+\end{center}
+\vspace*{.2in}
+
+\begin{center}
+[\bf Insert Figure \ref{dv2}  about here]
+\end{center}
+\vspace*{.2in}
+
+Our hypotheses focus on changes in women's empowerment, so we use the differences in women's political empowerment from the previous year to current or future years as the dependent variables. Measuring women's empowerment in differences produces stationary dependent variables\footnote{We use the Fisher-type panel unit-root test developed by \citeauthor{choi:2001}, which can be used with unbalanced panels with gaps, see \Citealt{choi:2001}.} and also reduces the potential for inferences to be confounded by country-specific and time-invariant characteristics that predispose some countries to be more egalitarian than others.\footnote{Using this approach could affect cases at the top of the scale, i.e. those with little room for growth. As can be seen, in part, in Figure \ref{dv2}, the values for women's empowerment for much of the data space for all countries, including those in the developed world, are far enough from 1 or 0 that there is room for movement in either direction.} \\
+
+For the Roles Shift Hypothesis, we also examine other dependent variables that allow us to see specific changes in women's social roles. First, we use changes in the {\it women's civil society participation index} to measure changes in how active women are in civil society. Second, we use measures of changes in fertility rates, from the World Bank Development Indicators.\footnote{The specific variable used is ``SP.DYN.TFRT.IN"; see \href{https://data.worldbank.org/products/wdi}{https://data.worldbank.org/products/wdi}.} If war leads to women's empowerment by transforming their expected social roles, we expect declining fertility rates, since high fertility rates reflect expectations for women to fulfill traditional social roles associated with child-bearing and care-giving.\\
+
+
+\subsection*{Independent Variables}
+\vspace*{.2in}
+
+We use a number of variables to measure {\it war}.  We use the Correlates of War (COW) data\footnote{\Citealt{sarkees2010resort}. This is supplemented with UCDP's Armed Conflict Data from 2007 to 2015. See \Citealt{pettersson2015armed}.} to create three binary variables: inter-state war, intra-state war, and war (if either interstate, intrastate, or both in a given year). Panel c of  Figure \ref{dv1} plots trends in these types of conflict from 1900-2015. We also create a binary variable of {\it existential war}, since not all interstate wars threaten a country's survival. {\it Existential war} -- coded as true when the country was fighting an interstate war with a contiguous state, and/or a war against a major power\footnote{To define contiguity, we use data from COW's Direct Contiguity Data (Version 3.20)(see \Citealt{stinnett2002correlates}) and define  two countries as contiguous if they are separated by a land or river border. The list of major powers is from the COW's Major Power List.} -- captures wars that threaten a state's existence. Wars against non-contiguous and non-great-power states, such as the American wars in Vietnam or Iraq, should be less threatening to the homeland.  \\
+
+In some models, we use non-binary indicators of war exposure to specifically examine how war duration and severity shape women's empowerment. {\it Duration} counts a country's years of continuous war. {\it Battle Deaths} (logged) is the natural log of the number of battle-related fatalities in war, as measured by \citeauthor{lacina:gleditsch}.\footnote{\Citealt{lacina:gleditsch}. The data only cover 1946 to 2007. We add one to the fatalities measure before taking the natural log.}  \\
+
+To test the Militarization Hypothesis, some models include {\it military personnel per capita} from the National Material Capabilities Data (NMC, v5) in the COW Project.\footnote{\Citealt{singer1972capability,singer1988reconstructing}. The data are supplemented post-2012 with the World Bank's Development Indicator for armed personnel.} We focus on this variable rather than military spending per capita because we expect that the number of persons in a military has a more direct effect on a country's social dynamics than a purely monetary variable.\footnote{We run alternative models with military spending; see the robustness check section in the Appendix.} We convert this to {\it logged military personnel per capita}.\footnote{To ensure that we have a reasonable scale for visualizing the effect in the results, we rescale {\it military personnel per capita} by multiplying by 100 before taking the log-transformation.} Because of our interest in the changing pace of militarization, we use the first difference and also control for overall militarization levels by including the temporal lag of the military personnel variable. \\
+
+We have four additional explanatory variables used to investigate our hypotheses. First, for the Threat Hypothesis, we use a measure of {\it territorial threat} from \citeauthor{gibler2013territorial}.\footnote{\Citealt{gibler2013territorial}.} This is a ``predictive measure of probable, latent threat to the territorial core of the state''; it ranges from 0 to 1, with greater values indicating greater threat to homeland territory.\footnote{\Citealt[255]{tir2017painting}. This is a composite variable based on several pieces of information, including border age, shared colonial heritage (or not), existence of a defense pact, previous peaceful territorial exchange, ongoing or prior wars, and overall level of militarization. For a full list and other details of the conceptual and methodological descriptions of this variable, see \Citealt[31-33]{gibler2013territorial} and \Citealt[255]{tir2017painting}. Its correlation with the conflict and militarization variables is around .2 for both.} We are most interested in the year-on-year change in territorial threat as an explanatory variable but also include the one-year lag of territorial threat to control for a society's baseline threat level.\\
+
+Second, to test the Demographic Shifts Hypothesis, we use the natural log of {\it population size} from the NMC data to examine how population size changes during and after war influence women's empowerment. Again, we focus on the first-difference of population size and include the overall lagged population size as a control. We use additional measures that break down population changes by sex as robustness checks.  \\
+
+Third, to address the Political Shifts Hypothesis, we use the  Archigos political leader data  to create a binary variable, {\it irregular leadership change}, that is true when there was an irregular leader entrance or exit.\footnote{\Citealt{goemans2009introducing}.} We use a measure of irregular leadership change because these are the type of regime transitions that provide openings for new equilibria and therefore can affect the rapid adoption of new social policies. These are more likely to occur in a war's aftermath and therefore more closely linked to our arguments. We include in the robustness checks section in the Appendix models with alternative measures of regime change.\\
+
+Fourth, the Labor Shifts Hypothesis -- about wars during economic output booms -- implies a conditional relationship where a war's effect on women's empowerment gains should be stronger during times when war coincides with economic growth. We thus interact the one-year change in logged {\it energy consumption} from the NMC data with the occurrence of war. We expect that the marginal effect of war is more positive when there are substantial energy consumption increases.  \\
+
+Note that we do not have any mechanism-specific independent variables for the Roles Shift Hypothesis. While the \citeauthor{thomas:wood} data have information on female rebel fighters,\footnote{\Citealt{thomas:wood}.} its temporal coverage (1979-2009) is too constrained for inclusion in our models. As mentioned above, we use changes in fertility rates and women's civil society participation index as the dependent variables in two tests of the Roles Shift Hypothesis.\\
+
+For additional control variables, we consider the potential for democratic countries to have greater levels of gender equality and lower militarization, so we control for {\it regime type} using the Polity IV index.\footnote{\Citealt{marshall2002polity}.}  We include both the lag value and the first difference.  We also control for the level of economic development because the propensity for war and gender norms vary with economic growth. We thus use the logged NMC {\it energy consumption} variable and include both the temporal lag and the change as control variables. In addition, we also control for the {\it calendar year}, because we anticipate an increasing trend of women's empowerment. \\ 
+
+
+\subsection*{Model Specification}
+\vspace*{.2in}
+
+We rely on two approaches to model the relationship between war and women's empowerment: fixed effects regression and an instrumental-variable approach with an endogenous binary-treatment variable.\footnote{\Citealt{vella1999estimating,wooldridge2010econometric}. Model details are provided in the Appendix.} First, we use fixed-effects regression models that hold constant all the unobserved time-invariant influences on changes in women's empowerment. To address the reverse-causality expectation from the existing literature that gender inequality increases the potential for war, which would bias the estimates toward finding that war has a  \emph{negative} relationship with the outcome of women's empowerment, we control for the temporally lagged level of women's empowerment in these models. To address the potential for spatial autocorrelation due to neighborhood-wide factors that shape women's empowerment across multiple states at the same time, we control for the spatial lag---the average change in women's empowerment in neighboring states.\footnote{We take the temporal lag to avoid simultaneity bias, as recommended by \Citealt{beck:etal}, so the change in average neighbor women's empowerment is taken from $t-2$ to $t-1$. States without neighbors are treated as if their neighbors have had no change in women's empowerment. For the fertility models, we control for the lagged average change in fertility rates in neighboring states.}\\
+
+Second, we use an instrumental variable approach---specifically, endogenous treatment regression---to further account for war's potential to be endogenous to society's levels of gender inequality.\footnote{\Citealt{vella1999estimating}.}  We use as instruments for war counts of the number of civil and interstate wars occurring in a country's contiguous neighborhood at one- and two-year lags, because existing work has shown that armed conflict tends to diffuse.\footnote{For example, see \Citealt{buhaug:gleditsch,gleditsch:salehyan:schultz}.} Neighboring war and instability can create a number of negative externalities, including refugee flows, regional economic depression, and demonstration effects. Moreover, neighboring war often involves transnational armed actors that can similarly destabilize neighboring countries and aggrieve neighbors.\footnote{The interstate variables count the number of interstate wars a country's neighbors fought with {\it other} states than the country under observation in a given year.}  Countries that border states at war are at greater risk for war for reasons that are often largely outside of their own control.\footnote{Conditional on the covariates, we assume that neighboring wars are only correlated with changes in women's empowerment via their relationship with the occurrence of war in the country under observation. Using Hansen's J test for exogenous instruments, we do not find significant correlation between the residuals of the second equation and the instruments. } Diagnostic least-squares models show that war activity in neighboring states during the previous two years well explains war onset.\footnote{The F-test statistic for war as the treatment is 10.16.}  \\
+
+For both types of model, we generate standard errors that are robust to clustering on the country of observation, to account for additional within-panel autocorrelation. Since the fixed effects models rely on fewer modeling assumptions and since the instruments are not consistently strong for all of the types of war treatment variables, we emphasize the fixed-effects models and use the endogenous treatment-regression approach to demonstrate the robustness of the findings.\\
+
+
+%section for results
+\section*{Results}
+\label{result}
+\vspace*{.2in}
+
+\subsection*{Core Models: Broad Effects of War}
+\vspace*{.2in}
+
+
+We first examine the effect of war (interstate or intrastate) on the change in women's empowerment in the current year and in future years at one-year, two-year, three-year, four-year, five-year, ten-year, and fifteen-year increments.\footnote{We use as the dependent variable the difference in women's political empowerment between time $t$ and $t-1$; as well as between $t+1$ and $t-1$, $t+2$ and $t-1$, $t+3$ and $t-1$, $t+4$ and $t-1$, $t+5$ and $t-1$, $t+10$ and $t-1$, and $t+15$ and $t-1$.} Coefficient tables of all results are found in the Appendix. We plot the marginal effects distributions via a simulation approach. Specifically,  we follow  \citeauthor{hanmer2013behind} and run 1000 simulations based on the posterior distribution of the model parameters (i.e., the coefficients and variance-covariance matrix).\footnote{\Citealt{hanmer2013behind}.} For each simulation, instead of presenting the marginal effects of an ``average case,"  we hold the other covariates at each case's observed values, generate marginal effects for each case and then average over all observations. The goal of this ``observed value" simulation approach is to obtain an estimate of the average effect in the population.\\
+
+\begin{center}
+[\bf Insert Figure \ref{war} about here]
+\end{center}
+\vspace*{.2in}
+
+Panel a of Figure \ref{war} shows that, with the fixed-effects regression approach, war is positively associated with change in women's political empowerment in the medium term. That is, the war variable is statistically significant (95\% confidence interval in a two-tailed test) and positive in the models of forward changes in women's empowerment at three to five years ahead. The uncertainty increases for the predicted marginal forward effects farther out, as the sample size decreases. \\
+
+Figure \ref{IV} presents the marginal forward effects of war from the endogenous treatment regression models, which leverage the exogenous variation in war due to neighborhood diffusion in order to isolate the war-to-empowerment causal direction. The results confirm that war has a positive medium-term effect on changes in women's empowerment. Moreover, we see that this model produces results in which war has a positive \emph{short-term} effect as well, and the magnitudes of the coefficients are higher. One explanation is that the IV approach more completely reduces the potential for a countervailing endogeneity bias, given the expectation that gender inequality (low women's empowerment) contributes to the onset of war in the first place, making it difficult to see a positive effect of war on changes in women's empowerment. In this way, the fixed effects model appears to be the more conservative test, and we rely on it for the remaining results because it makes fewer assumptions, it allows us to consider the effect of multiple treatments (e.g., new war and ongoing war) in the same model, and it allows us to consider the effect of additional treatments (e.g., war duration and severity, as well as different war types) that are not as well explained by neighboring war.\\
+
+\begin{center}
+[\bf Insert Figure \ref{IV} about here]
+\end{center}
+\vspace*{.2in}
+
+The temporal dynamics in our results are both interesting and puzzling: what might explain war's medium-term but not long- or short-term (in the fixed effects models) effects? To investigate this further, we first unpack the different relationships that periods of new war, ongoing war and recent war have with women's empowerment. Each of those periods could relate to the effect that war has on women's empowerment, as they are being compared to periods in which there has not been war for at least two years. In panel b of Figure \ref{war}, we see that the relationship between new war---when the current year has war but the previous year did not---and women's empowerment has a negative sign, though not statistically significant. This is different from ongoing war (panel c)---when both the current and previous periods experienced war---and recent war (panel d)---when the previous period experienced war but the current period does not. Ongoing war is associated with medium-term women's empowerment increases, while recent war is associated with short-term women's empowerment increases. States that have been experiencing war for more than a year can expect to experience increases in women's empowerment within a few years, and states that have recently come out of war can expect to experience immediate increases in women's empowerment. \\
+
+The difference in the impact of new war and ongoing war provides insight into the temporal dynamics. First, the lack of a robust  short-term effect appears to be due, in part, to the fact that the overall war variable -- a combination of new and ongoing war -- averages out opposite effects. Second, the estimated effects of new war and ongoing war also help rule out an alternative explanation for the observed relationship between war and women's empowerment in the medium term: if women's empowerment suffers during war, women's empowerment may just go up and return to ``normal'' when seen from the perspective of a period of war. This does not appear to be the case---new war is not associated with a statistically significant short-term drop in women's empowerment, or even a drop that is as great in magnitude that we see for the positive effects of ongoing war and recent war. Instead, these findings indicate that war leads to increases in women's empowerment beyond any short-term drops that tend to accompany the onset of war. \\
+
+What explains the lack of statistically-significant longer-term (10-15 years) effects in the models presented so far? The growing uncertainty as the sample size gets smaller and smaller (when needed to make more forward expectations) likely explains some of the declining statistical significance. We should also expect greater heterogeneity in outcomes as more time separates the impulse (war) from the response (change in women's empowerment). In particular, longer time windows will skip over some periods of war that occur in the interim and that are not reflected in the coding of the war variable.  Models presented in the Appendix do not show much evidence that the attenuating effect is due to the periods of war experiencing future year-on-year \emph{reductions} in women's empowerment due to backlash.\footnote{We modeled the one-year changes at each point in forward time (e.g., $y_{t+15}-y_{t+14}$), and war does not have a significant negative effect on future one-year changes, see % Models 70-77 in
+Table \ref{fyearonyearpolempower}.} Regardless, the results point to an important caveat: we cannot conclude that societies do well to consolidate the observed medium-term increases in women's empowerment.\\
+
+\begin{center}
+[\bf Insert Figure \ref{durbd} about here]
+\end{center}
+\vspace*{.2in}
+
+Thus far, we have explored periods of war as binary. Figure \ref{durbd} presents models that consider the duration of war and the severity of violence as interval-level explanatory variables. The findings indicate that war duration is associated with short- and medium-term increases in women's empowerment. The longer a war, the more we can expect subsequent increases in women's empowerment. Battle-related fatalities, however, are not associated with significant increases in women's empowerment.\footnote{Our duration findings are consistent with those of \Citealt{hughes2015civil}, who focus on women's political representation in Africa, but our severity findings are not. In other models, cumulative battle deaths also are not significantly associated with increases in women's empowerment, see %Models 78-85 in 
+Table \ref{culmudeaths}.} In fact, in the very short term, high battle deaths are associated with immediate \emph{decreases} in women's empowerment.\footnote{This finding resonates with \Citealt{urdal:che}, who find that high levels of war severity can negatively impact the wellbeing of women in the short term.}  That battle-related fatalities do not exhibit the same relationship points to the possibility that the positive impact of war on women's empowerment is not operating through processes related to war wiping out segments of the population. Rather, it is protracted struggle that shakes up society and opens up space for women's empowerment.\\
+
+In focusing on different types of war, we see in models presented in the Appendix that there is not much difference in how interstate war, intrastate war or existential war shape women's political empowerment.\footnote{See %Models 86-93,  Models 94-101, and Model 102-109,  in
+ Tables \ref{intrawarpolempower}, \ref{interwarpolempower}, and \ref{existentialwarpolempower}, respectively.} Recent periods of wars of each type tend to be associated with short-term increases in women's empowerment, and ongoing periods of war of each type tend to be associated with medium-term increases. \\
+
+\subsection*{Mechanisms: Roles Shift}
+\vspace*{.2in}
+
+The above analyses indicate that wars, especially longer wars, are associated with medium-term women's empowerment increases. We have presented multiple mechanisms that might connect war to changes in women's empowerment. Thus far, we do not see much support for the militarization or external armed threats mechanisms because we are finding that war tends to increase, rather than decrease women's empowerment. We also have not seen much support for the demographic shifts hypotheses because war severity is not associated with women's empowerment. We now turn to additional models that help to further tease out the mechanisms in play. Table \ref{results} provides a snapshot of the results.\\
+
+\begin{center}
+[\bf Insert Table \ref{results} about here]
+\end{center}
+\vspace*{.2in}
+
+To examine the Roles Shift hypothesis, we first find that recent war and ongoing war positively affect changes in women's participation in civil society.\footnote{We use the \emph{women's civil society participation index} (one component in the women's political empowerment index) as the outcome of interest, see Table \ref{fecivilparticip}.} Then, we turn to models where the dependent variable is immediate and future changes in fertility rates.\footnote{Because temporal coverage is constrained to 1960-2015, these models examine the effects since the 1960s.} Figure \ref{fig:fertility} plots the average marginal effects.  In general, we find that existential war lowers fertility rates in the medium term, while general wars are not as strongly associated with fertility-rate reductions.\footnote{In models in the Appendix, we also control for levels and changes in infant mortality and overall population size, which \Citealt{urdal:che:2013} find to be related to infant mortality; see Table \ref{fefertilityinfant}.} In additional models in the Appendix, we see that interstate wars tend to have a stronger relationship with changes in the fertility rate than intrastate wars.\footnote{See %Models 126-133, 134-141 in 
+Tables \ref{intrawarfertility} and \ref{interwarfertility}, respectively.} It appears to take an \emph{interstate} threat to society---rather than necessarily the domestic upheaval that comes with civil war---to affect fertility rates. The national call to arms that accompanies interstate war does apparently open up spaces for women to begin filling less traditional roles. In other models presented in the Appendix that use battle deaths as the key explanatory variable, we again do not observe a statistically significant relationship,\footnote{See Table \ref{fertilitybdeath}.} so, similar to the models of women's empowerment, it is not war severity per se that is shaping fertility rates. Taken together, these findings offer some support for the Roles Shift Hypothesis, though with two caveats. First, we do not have enough evidence to conclude that war leads to \emph{lasting} (beyond ten years ahead) changes in social roles, so it might not be the case that war allows for the establishment of new equilibria of gender norms and institutions. Second, we do not find that intrastate conflict is especially important in the shifting of social roles, which means that the roles shift might not be specifically tied to domestic challenges to status quo power arrangements or opportunities for women to participate in insurgencies. \\
+
+
+\begin{center}
+[\bf Insert Figure \ref{fig:fertility} about here]
+\end{center}
+\vspace*{.2in}
+
+
+The case of El Salvador demonstrates the potential for the roles-shift mechanism to connect war to women's empowerment, at least in the short- and medium-terms. As \citeauthor{wood2008social} notes, ``civilian gender roles may also change dramatically during war. In El Salvador...women became the primary interlocutors with the state as they sought news of their detained or disappeared menfolk."\footnote{\citealt[553]{wood2008social}} Before the civil war from 1980-1992, women had very limited economic, social, or political power. The Catholic Church -- extremely popular and powerful throughout the country -- espoused a conservative gender ideology where a woman belonged in the house, and she lost status for working outside the home.\footnote{\Citealt{blumberg2001risky}.} Although women had inheritance rights, few owned property; most did not work.\footnote{\Citealt{blumberg2001risky}.} The war was transformative. \citeauthor{viterna2013women} notes that ``Regardless of the nature of their participation (or nonparticipation), the violence and upheaval of war forced a redefinition of gender roles."\footnote{\Citealt[6]{viterna2013women}} As men left to escape government repression or fight in the rebellion, women became household heads, so that, according to \citeauthor{mason1992women}, war -- and the accompanying social, demographic, and economic changes -- undermined the social structures of rural society. Faced with severe economic problems and concerned with government abuses, many women started to organize, forming national NGOs to address economic concerns, human rights abuses, and women's rights issues.\footnote{\Citealt{blumberg2001risky,mason1992women,shayne1999gendered}.} Many became involved in the war effort, both in support positions and also as fighters; a woman was second in command of the main rebel group (FMLN), and 30 percent of the combatants were women.\footnote{\Citealt{mason1992women,shayne1999gendered}.} They gained critical organizational experience, and as \citeauthor{shayne1999gendered} argues, their participation ``helped to pave the way for a reconceptualization of the role and status of women in Salvadoran society."\footnote{\Citealt[94]{shayne1999gendered}.} By the end of the conflict, over half of heads of all household were women, and women led a national campaign that successfully passed several pieces of legislation improving women's rights.\footnote{\Citealt{blumberg2001risky,shayne1999gendered}.}\\ 
+
+The war in Liberia, which experienced civil war from 1989 to 2003, also reveals the potential for war to lead to major (but not complete) women's empowerment as a result of women's participation in both the fighting and the peace movements. According to Tripp, Liberia ``illustrates how the decline of conflict led to the introduction of women's rights provisions in the peace agreement, women's heightened engagement in electoral politics, and their increased involvement in legislative reform affecting women."\footnote{\Citealt[78]{tripp2015women}.} During the war, some estimate that tens of thousands of women participated as armed combatants.\footnote{\Citealt[108]{jones_demen}.} Because so many men were killed or in hiding, more women became primary breadwinners and in general were more active in their communities.\footnote{\Citealt{tripp2015women}.} Women-led social movements, especially the Liberian Women's Mass Action for Peace (LWMAP) which emerged from the Women in Peacebuilding Network (WIPNET), formed during the war and played an important role in using protests, including a sex strike, to move Taylor's government and the LURD rebels toward negotiations and to keep them negotiating.\footnote{\Citealt[55-56]{lederach:liberia} and \Citealt[110]{jones_demen}.} The Mano River Women Peace Network (MARWOPNET), sent delegates to the peace process that ended the war.\footnote{\Citealt[100-102]{tripp2015women}.} The LWMAP movement also led efforts to reconcile and reintegrate child soldiers and sexual violence victims after the war.\footnote{\Citealt[57-58]{lederach:liberia}.} Moreover, the women's movements mobilized voters for Ellen Johnson Sirleaf's successful 2005 campaign to become the first female president in all of Africa.\footnote{\Citealt[264]{johnson2009child}, \Citealt[61]{lederach:liberia} and \Citealt{tripp2015women}.} The war upended Liberian society so much that it opened up space for a woman president and created the impetus for major security-sector reform, including increasing women's representation in the Liberian National Police and creating new institutional initiatives, such as forming the Women and Children Production Unit.\footnote{\Citealt[141]{karim:beardsley} and \Citealt[109]{jones_demen}.} \\
+
+The cases of El Salvador and Liberia also demonstrate the struggles for war to lead to \emph{lasting} changes in the shifting of women's roles and thus empowerment. In the case of El Salvador, the partial gains in women's empowerment experienced in the aftermath of war were difficult to fully consolidate. \citeauthor{viterna2013women} notes that while women occupied many post-war community leadership positions, post-war opportunities were not equally available (not even to all former combatants), and over a quarter of former guerrillas expressed frustration over `lost promises'.\footnote{\citealt[192]{viterna2013women}.} In the case of Liberia, role shifts during war and legislative and electoral wins shortly after peace were followed by challenges in consolidating long-term gains. Despite Ellen Johnson Sirleaf's rise to the presidency, men still dominated the highest levels of government, including her Cabinet.\footnote{\Citealt[112]{jones_demen}.}  Socially, men have remained less supportive of the changing roles, and norms like female genital mutilation still persist.\footnote{\citealt{tripp2015women}. See also ``The legacy of Ellen Johnson Sirleaf: Why `great inspiration' is not quite enough' at  \href{http://duckofminerva.com/2018/02/the-legacy-of-ellen-johnson-sirleaf-why-great-inspiration-is-not-quite-enough.html}{http://duckofminerva.com/2018/02/the-legacy-of-ellen-johnson-sirleaf-why-great-inspiration-is-not-quite-enough.html}.}  \\
+
+
+
+\subsection*{Intermediate Mechanisms}
+\vspace*{.2in}
+
+Turning to other findings related to the mechanisms, a number of the hypotheses imply intermediate mechanisms, so additional analyses examine whether {\it military personnel per capita}, {\it population change},  and {\it irregular leadership change} are intermediate variables on the pathway from war to women's empowerment.  We first run a set of models to test whether war can explain changes in these variables.  We then include these variables as covariates in the core regression models run above to see if they are associated with women's empowerment independent from the effect of war. The marginal effects of war with and without these intermediate variables can also be compared to see how much of the relationship between war and women's empowerment is accounted for by these intermediate processes. The results are summarized in Figure \ref{fig:intermed}.\footnote{For Figure \ref{fig:intermed} we rescale {\it log of population}, {\it log of male population}, and {\it log of female population} by multiplying 10.} \\
+
+
+\begin{center}
+[\bf Insert Figure \ref{fig:intermed} about here]
+\end{center}
+\vspace*{.2in}
+
+
+We find that {\it military personnel per capita} increases during periods of war as expected, but this change is not strongly associated with changes in women's political empowerment (Panels a and b of Figure \ref{fig:intermed}), and the medium-term direction is actually positive instead of the negative direction expected by the Militarization Hypothesis. To further examine the Militarization Hypothesis, we use {\it per capita military expenditures} as an alternative measure to military size by personnel. We see that for two and three years ahead, increases in military expenditures are associated with a decline in women's empowerment at the 90-percent confidence level, consistent with the Militarization Hypothesis. There is some indication that war leads to more militarization, which then produces a countervailing force that partially limits the extent to which war opens up space for women's empowerment.\footnote{See % Model 150 and Models 151-158 in 
+Table \ref{fepolemmilex}.}  The long-term effects at ten and fifteen years ahead, however, point to a positive relationship between changes in military expenditures and women's empowerment, which is not expected. We consider the findings here inconclusive, and the difference in the short-term and long-term effects of military expenditure could merit further study.\\
+
+The Liberian case demonstrates the potential for this countervailing effect of militarization. The militarization of Liberian society during protracted war had profound implications for women's (dis-)empowerment and security. The war itself diverted resources to the security sector and away from female eduction.\footnote{\Citealt[102]{jones_demen}.}  Moreover, the presence of UNMIL, which entailed the deployment of thousands of international troops during the peacebuilding period, resulted in widespread sexual exploitation and abuse perpetrated by the peacekeepers.\footnote{\Citealt{karim:beardsley}, \Citealt{beber2017peacekeeping} and \Citealt[145-148]{higate:henry}.} This example points to the potential for international peacekeeping efforts to contribute to the overall militarization of society with potentially stark gender implications.\\
+
+Turning to population shifts as an intermediate variable (Panels a and c of Figure \ref{fig:intermed}), we see that population change is negatively associated with women's empowerment in the longer term, but war does not have a statistically significant relationship with decreases in a state's population (for both men and women).\footnote{The gender-disaggregated statistics are not available prior to 1960, so the sample space is restricted for those analyses.} These findings should be considered along with the results presented earlier, in which we do not see a relationship between battle-related deaths and women's empowerment, which we would expect to see if population decline from severe war is a key intermediate variable from war to women's empowerment. The combination of evidence does not sufficiently support the Demographic Shifts Hypothesis.\\
+
+Irregular leadership change is the most viable candidate of the intermediate mechanisms explored in these analyses. We find that war increases the likelihood of irregular leadership change, and irregular leadership change is associated with positive changes in women's political empowerment (Panels a and d of Figure \ref{fig:intermed}). Combined with the decreased marginal effects of war when the intermediate variables are included, as seen in Panel e of Figure \ref{fig:intermed}, this supports the Political Shifts Hypothesis. The political adjustments that are more common in the wake of war appear to be an important mechanism by which war can lead to women's empowerment. \\
+
+The case of the Chinese Civil War exemplifies how war can contribute to women's empowerment via political shifts. This can be seen specifically when considering the adoption of the Chinese Communist Party (CCP)'s 1950 Marriage Law.\footnote{The 1950 Marriage Law was the main legal document of  People's Republic of China pertaining to women's rights and gender equality; see \Citealt{johnson2009women}.} Women and men in  the Confucian society belonged to a ``rigid hierarchy of submission and dominance, passivity and activity, weakness and strength."\footnote{\Citealt[1]{johnson2009women}.} Before the CCP came to power in 1949, all cycles of Chinese dynastic decline resulted in calls for restoring the male-dominant Confucian gender hierarchy. During interstate war with the Japanese and the civil war with the Nationalist Party from the 1930s to 1940s, the position that changing women's relationship to production would naturally change their familial, societal, and political status had become dominant in the CCP.\footnote{\Citealt[93]{johnson2009women}.} Immediately after the 1949 establishment of the PRC, campaigns were launched for the 1950 Marriage Law; 1950-1953 was the ``high tide" of promoting women's rights and political and economic participation. Women's rights activists, such as Soong Ching-ling, Deng Yingchao and He Xiangning, assumed prominent positions in the new communist government. These campaigns and appointments swiftly raised women's overall status and political gender equity in postwar China.\footnote{\Citealt{rosen1995women,stacey1983patriarchy}.} At the same time, the case of China also demonstrates how initial momentum toward women's empowerment can quickly taper during the Great Leap Forward campaign (1958-1962) and the Cultural Revolution (1966-1976), as illustrated in Figure \ref{dv2} and the persistent male-dominance seen in high male-to-female population ratios.\footnote{\Citealt{hudson2002surplus}.}\\ 
+
+In terms of other mechanisms, we do not find support for the Threat Hypothesis. In fact, contrary to expectations, in results shown in the Appendix, {\it territorial threats} (measured in both changes and lagged levels) has a positive relationship with changes in women's empowerment at leads of five and ten years when included as an independent variable in models with and without war.\footnote{See %Models 159-166 and Models 167-174 in 
+Tables \ref{fepolempnowar} and \ref{fepolempwar}, respectively.} Territorial threats tend to accompany periods of war and produce a positive increase in women's empowerment. Here, it is important to note that our findings are not necessarily at odds with existing studies that have shown that international threats decrease the descriptive representation of women in positions of political authority---selection of female leaders is not the same as women's empowerment in general.\footnote{\Citealt{schroeder2015security}.} \\
+
+We also do not find much support for the Labor Shifts Hypothesis.\footnote{\Citealt{tir2017painting} for an additional critique of this hypothesis.} In models presented in the Appendix that regress women's empowerment on the interaction of the change in power consumption variable and the war variable,\footnote{See Table \ref{interaction}.} we do not see evidence of a conditional relationship in which war is especially likely to lead to increases in women's empowerment during times of economic growth. This is contrary to popular tropes, but it is possible that we fail to find results because our data are limited.\footnote{Labor force data only exists post 1960 and lack consistent coverage, so we rely on the analysis of this interaction effect rather than a more direct study of how war transforms the female labor force.}  \\
+
+We run several sets of robustness checks to demonstrate that our findings are generally consistent across alternative measures of some key variables and alternative sets of controls. Our main findings hold in each set of robustness checks. A full discussion of these checks is available in the Appendix Tables \ref{intermedrbst}-\ref{polemprobustsimpyear}. \\
+
+
+\section*{Intersection with Alternative Approaches} 
+\vspace*{.2in}
+
+Our analysis has explored the link between armed conflict and gender power imbalances within society with a positivist lens. From theoretical priors, we posited testable hypotheses and examined them using quantitative data. Our approach is not the only approach that can shed light on the research question. \citeauthor{sjoberg2017reevaluating} point to the value for dialogue across different epistemological and ontological approaches.\footnote{\Citealt{sjoberg2017reevaluating}.} Indeed, our analysis resonates well with existing scholarship using alternative approaches. This is not to say that the alternative approaches are in perfect agreement or redundant. Rather, alternative approaches provide insight---such as the complex ways gender power manifests and the different ways that violence is experienced throughout society---that would be less well suited for our approach. At the same time, our analysis provides empirical support for some of the ways in which violence shapes gender power dynamics and thereby speaks to other literatures on the consequences of war that have yet to consider the gendered consequences of violence. \\
+
+The key findings---that war can serve as a catalyst for women's empowerment primarily via the mechanisms of role shifts and political shifts---are consistent with scholarship rooted in feminist theory and methods that has considered how war can provide an opportunity for women's empowerment, at least temporarily. \citeauthor{cockburn2010gender} argues that anti-war movements successfully advance a feminist agenda because the gendered nature of war becomes so apparent.\footnote{\Citealt{cockburn2010gender}.} War creates an opportunity for feminist movements to gain traction and for societies to be so shaken up that norms and institutions associated with hegemonic masculinities can become more egalitarian. Relatedly, \citeauthor{tripp2015women} suggests that war can disrupt societal gender norms and, when accompanied by political openings and women's movements, can lead to ``gender regime change'' that includes advances in women's rights and the rise of women to positions of power.\footnote{\Citealt{tripp2015women}.}\\
+
+\citeauthor{mageza2015mobilizing} identifies how the Rwandan genocide shook up the society so much that women have become politically and socially empowered in the post-genocide era.\footnote{\Citealt{mageza2015mobilizing}.}
+More broadly, \citeauthor{wood2008social} uncovers how war, especially civil war, can transform the accepted roles that women can fill.\footnote{\Citealt{wood2008social,wood2015social}.} During war, women are often needed as security producers and actively participate in the fighting. If women can be accepted as, or even valued for, being security producers, then it becomes more accepted and indeed normal for women to have authority in society. We should not assume, however, that the new roles are all virtuous. \citeauthor{sjoberg2016women} shows that women often perpetrate heinous violence during war, just like men.\footnote{\Citealt{sjoberg2016women}.} \\
+
+Our finding that military spending responds to war and may, in turn, provide a countervailing pressure to limit women's empowerment during times of militarization, resonates well with some existing scholarship rooted in feminist theory that focuses on the formation of gendered power dynamics within and through militarization processes. As \citeauthor{elshtain1987women} suggests, when preparing for national defense, men are valorized as ``just warriors'' fighting and protecting the ``beautiful souls'' at home.\footnote{\Citealt{elshtain1987women}.} Norms surrounding women as objects for security forces to protect appear in the construction of the laws of war and the practice of humanitarian intervention. Both view women as potential victims of insecurity while ignoring women's potential as security producers.\footnote{\Citealt{charli2005women}.} \citeauthor{mackenzie:foster} posit that in the midst of insecurity, ``masculinity nostalgia'' can accompany yearnings for peace and stability.\footnote{\Citealt{mackenzie:foster}.}  Militarization perpetuates a number of gender dichotomies, which generally imply men should monopolize protection. During militarization, societies thereby accord men (security producers) more resources and esteem, which are foundations of gendered power and hierarchy. It is not just that masculine characteristics are valued in militaries, but that specific masculine orientations---hegemonic and hyper masculinities---are actively cultivated while feminine and other masculine characteristics are at best marginalized and at worst actively belittled as part of the socialization process.\footnote{\Citealt{connell2005hegemonic,barrett1996organizational,higate2003military}.} \\
+
+If militarization perpetuates gender hierarchies, de-militarization can enable the erosion of gender hierarchies. \citeauthor{kronsell2012gender} notes that in many developed countries, such as Sweden, militaries focus on cultivating peace abroad. While this cosmopolitan orientation has opened up space for gender mainstreaming, gender dichotomies, especially around protection and fighting prowess, remain embedded and a source of gender power imbalance.\footnote{\Citealt{kronsell2012gender}.} Indeed, our findings indicate that (de-)militarization has only a limited role in explaining changes in women's empowerment and should not be read as suggesting that a reduction in militarization is all that is needed to promote gender equality. \\
+
+
+
+\section*{Conclusion: Implications and Future Research}
+\vspace*{.2in}
+
+While we do not advocate for war as a policy tool, our findings show war can inadvertently produce social dividends.\footnote{\Citealt{bauer:etal}.} The core finding that war is associated with women's empowerment produces a few implications for efforts to reduce gender inequality worldwide. One takeaway is that it takes massive upheaval to create the opportunity for improvements toward gender equality. This narrow implication, however, offers little guidance on how to improve women's empowerment and risks turning a blind eye to the suffering of women and men during war. Indeed, in the case of El Salvador, women's wartime gains resulted in part from the death and disappearances of so many men. Many of the new heads of households were impoverished, and many women (and girls) who became rebels were refugees without husbands or children.\footnote{\citealt{wood2008social}.}  In Liberia, women experienced high rates of sexual violence, maternal mortality increases, and economic burdens from the loss of male heads of households and the destruction of their homes.\footnote{\Citealt[104-106]{jones_demen} and \Citealt[xxiv-xxvi]{isis-wicce}.}  Women combatants were also ill-informed about demobilization and often harassed and/or ineligible for DDRR support during the peacebuilding process.\footnote{\Citealt{tripp2015women}.}\\
+
+A more helpful implication is that gender mainstreaming during peace processes can be a powerful tool for cultivating norms and institutions of gender equality.  \citeauthor{anderson2015windows} and \citeauthor{tripp2015women} highlight how women's movements have pressed for reforms addressing sources of gender power imbalance to be on the bargaining table during peace processes.\footnote{\Citealt{anderson2014peace,anderson2015windows,tripp2015women}.}  Reforms include legal protections against sexual and gender-based violence, quotas for women's representation in government, and women's property rights reforms. Catalyzed internationally by the women, peace and security agenda launched with UNSC Resolution 1325, and assisted by international organizations, more and more peace agreements include provisions explicitly related to gender or women.\footnote{\Citealt{huber2017internationalization}.} The mainstreaming of gender and women during peace processes, such that active steps are taken to address the underlying sources of gender hierarchy, is crucial. Indeed, the findings indicate that the period immediately after war has ended is especially ripe for immediate improvements in women's empowerment, and they also indicate that constitutional reforms and adoptions that occur in the midst of regime change are an important vehicle for change. If reforms that address gender power imbalance are postponed until times of relative peace and after constitutional negotiations have concluded, the window of opportunity for change can be easily missed.\footnote{\Citealt{anderson2015windows}.} As it stands now, our finding that war can open up space for women's empowerment is only conclusive for the short and medium terms; we cannot rule out the potential for backlash against gains in women's empowerment in the longer term. In addition to making the most out of the opportunity for reform during peace processes, intentional efforts domestically and internationally to maintain the gains in empowerment may be needed to help establish a lasting equilibrium of women's empowerment. For instance, it is imperative that peacekeeping and peacebuilding efforts take up the mantle of UNSC 1325 and prioritize the inclusion of gender equality as a core component of promoting peace.\\
+
+Additional analyses in future research will continue to improve our understanding of how a society's security environment affects the level of gender hierarchy. Our study only assesses the effects of war and threat up to fifteen years into the future, at which point the uncertainty surrounding the estimated effects is high. To model even more long-term effects, future studies might aggregate the data to decade or generational-level units of analysis and see how societal threats and gender equality move in equilibrium. A related, useful agenda would be to identify conditions under which women's empowerment gains do persist long-term; that approach would provide key insight for policy applications, including a more nuanced understanding of the barriers to more permanent gains. Future studies might also consider additional measures of gender equality. The index of women's political empowerment, even though it aggregates three different measures, only captures a limited portion of how gender hierarchy can be manifested and experienced.\footnote{\Citealt{hill:karim}} Studies might use additional measures of gender inequality to capture the disparate manifestations of inequality, and they also might adopt research designs, including surveys, oral histories and discursive analysis, which better capture the experiences of women in times of war.\\
+
+ Finally, we recognize the need for an examination of how changes in gender hierarchies intersect in powerful ways with other social hierarchies and sources of inequality. Most straight forward, it would be important to uncover if war can also empower other marginalized social groups, including ethnic minorities and lower classes. Conversely, war might empower women on the backs of men from disadvantaged groups, as men from those groups are sent to fight in war at higher rates and are ultimately replaced by women, potentially from less disadvantaged groups. If this is the case, then an unqualified characterization of war as a catalyst for positive change misses more complicated social implications from warfare. \\
+
+%References section
+\setlength{\parskip}{2em}
+\singlespacing	
+\normalsize
+\bibliography{bib_hierarchy}
+\bibliographystyle{IO_bibstyle.bst}
+
+\newpage
+
+\begin{table}[h]
+\caption{Summary of Hypotheses and Expectations}
+\label{hypothesis}
+	{\footnotesize 
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|p{3cm}|  }
+	\hline
+	\hline
+\textbf{Mechanism} & \textbf{Stimulus Description} & \textbf{Empowerment Change} & \textbf{Type of Conflict}& \textbf{Timing}\\
+	\hline
+	
+	Militarization       & Security sector growth, potentially as an intermediate effect of war & Decrease &   Any conflict & Before/during/without war\\
+	\hline
+	External armed threats   & External threat, including interstate war &  Decrease   & External threat or war & During war, threats\\
+	\hline
+	Demographic shifts  & Male population decline as an intermediate effect of war & Increase &  Severe war & During, after war\\
+	\hline
+	Labor shifts    & Wars accompanied by economic growth & Increase &  Severe war & During war (short term)\\
+	\hline
+	Roles shift   & Wartime social disruptions &   Increase (also decreased fertility rates; increased women's civil society participation) & Any war (especially intrastate) & During, after war \\
+	\hline
+	Regime change   & Regime change as an intermediate effect of war  & Increase  & Any war & After war\\
+	\hline
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[h]
+\caption{Summary of Findings}
+\label{results}
+	{\footnotesize 
+\begin{tabular}{ |p{3cm}||p{6cm}|p{6cm} }
+	\hline
+	\hline
+\textbf{Mechanism} & \textbf{Stimulus Description} & \textbf{Finding} \\
+	\hline
+	
+	Militarization       & Security sector growth, potentially as an intermediate effect of war & Insufficient support when measured by personnel; some support when measured by expenditures\\
+	\hline
+	External armed threats   & External threat, including interstate war &  Insufficient support\\
+	\hline
+	Demographic shifts  & Male population decline as an intermediate effect of war & Insufficient support\\
+	\hline
+	Labor shifts    & Wars accompanied by economic growth & Insufficient support\\
+	\hline
+	Roles shift   & Wartime social disruptions &   Support, though maybe not permanent\\
+	\hline
+	Regime change   & Regime change as an intermediate effect of war  & Support\\
+	\hline
+\end{tabular}
+}
+\end{table}
+
+\newpage 
+% Figure 1
+\begin{figure}[h]
+   \centering
+    \caption{The Evolution of Women's Empowerment, 1900-2015 }
+    \label{dv1}
+      \subfigure[Women's political empowerment index in 1950]{\includegraphics[scale=.2]{Fig1a.pdf}}     
+       \subfigure[Women's political empowerment index in 2005]{\includegraphics[scale=.2]{Fig1b.pdf}}    
+          \subfigure[Women's political empowerment index and war over time ]{\includegraphics[scale=.14]{Fig1c.jpg}}    
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Panels a - b of Figure \ref{dv1} show the geographic distribution of {\it women's political empowerment} in 1950 and 2005. The gray areas denote missing data (e.g., countries have not yet become independent) while the lighter the color, the more women are empowered. Panel c of  Figure \ref{dv1} displays the global average trend of women's political empowerment (left y-axis)  from 1900 to 2015 along with the number of countries experiencing different types of wars (right y-axis).}
+       \end{flushleft} 
+\end{figure}
+
+
+% Figure 2
+\begin{figure}[h]
+   \centering
+    \caption{Women's Empowerment for Select Countries, 1900-2015 }
+    \label{dv2}
+  \includegraphics[scale=.2]{Fig2.jpg}
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Figure \ref{dv2} shows the evolution of the {\it women's political empowerment index} for China, El Salvador, India, Japan, Liberia,  Russia, United Kingdom, and United States from 1900 to 2015. The blue lines fit a loess-smoothing function and the discontinuities denote missing data.}
+       \end{flushleft} 
+\end{figure}
+
+% Figure 3 
+\begin{figure}[h]
+   \centering
+    \caption{Marginal Forward Effects of War on Women's Political Empowerment}
+    \label{war}
+  \subfigure[Forward effects of war]{\includegraphics[scale=.15]{Fig3.jpg}}
+    \subfigure[Forward effects of new war]{\includegraphics[scale=.15]{Fig3_newwar.jpg}}
+    \subfigure[Forward effects of ongoing war]{\includegraphics[scale=.15]{Fig3_ongoingwar.jpg}}
+    \subfigure[Forward effects of recent war]{\includegraphics[scale=.15]{Fig3_recentwar.jpg}}
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Panel a of Figure \ref{war} shows the distributions of the predicted marginal forward effects of war, based on the variable {\it war} %across the Models 1-8
+  in Table \ref{tab2}. Panels b through d  shows the distributions of the predicted marginal forward effects of periods of new war, ongoing war and recent war, based on the different treatment variables %across Models 9-16
+  in Table \ref{tab3}. }
+       \end{flushleft} 
+\end{figure}
+
+% Figure 4
+\begin{figure}[h]
+   \centering
+    \caption{Marginal Forward Effects of War on Women's Political Empowerment, IV Model}
+    \label{IV}
+	\includegraphics[scale=.15]{Fig4.jpg}
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Figure \ref{IV} shows the distributions of the predicted marginal forward effects of war from an endogenous treatment regressions model. The density plots are based on the treatment variable in the outcome stage %across Models 17-24
+ in Table \ref{ivpolempowerment}. }
+       \end{flushleft} 
+\end{figure}
+
+%Figure 5
+\begin{figure}[h]
+   \centering
+    \caption{Marginal Forward Effects of War Duration and Battle Deaths on Women's Political Empowerment}
+    \label{durbd}
+  \subfigure[Forward effects of war duration]{\includegraphics[scale=.15]{Fig5-a.jpg}}
+    \subfigure[Forward effects of battle deaths (logged)]{\includegraphics[scale=.15]{Fig5-b.jpg}}
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Figure \ref{durbd} shows the distributions of the predicted marginal forward effects of war duration and battle-related fatalities. The density plots in panel a are based on the variable {\it war duration} changing from 0 to 5 (i.e., 2.5\% quantile to 97.5\% quantile) %across the Models 25-32 
+ in Table \ref{polwardur}. The density plots in panel b are based on the variable {\it log of battle deaths} changing from 0 to 8.9 (i.e., 2.5\% quantile to 97.5\% quantile) %across the Models 33-40 
+ in Table \ref{polbdeath}.}
+       \end{flushleft} 
+\end{figure}
+
+%Figure 6
+\begin{figure}[h]
+   \centering
+    \caption{Marginal Forward Effects of War on Changing Fertility Rates}
+    \label{fig:fertility}
+ \subfigure[Forward effects of war]{\includegraphics[scale=.15]{Fig6-a.jpg}}
+    \subfigure[Forward effects of existential war]{\includegraphics[scale=.15]{Fig6-a.jpg}}
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Figure \ref{fig:fertility} shows the effects of war and existential war on changes in women's fertility rates. The density plots in panel a are based on the variable {\it war} in Table \ref{fefertility}. The density plots in panel a are based on the variable {\it existential war} in Table \ref{fefertilityexistential}.}
+       \end{flushleft} 
+\end{figure}
+
+%Figure 7
+\begin{figure}[h]
+   \centering
+    \caption{The Effect of War via Intermediate Variables}
+    \label{fig:intermed}
+  \subfigure[The marginal effects of war on intermediate variables]{\includegraphics[scale=.1]{Fig7-a.jpg}}
+   \subfigure[The marginal forward effects of changes in military personnel on women's empowerment]{\includegraphics[scale=.1]{Fig7_s_lmilper_pc.jpg}}
+   \subfigure[The marginal forward effects of population change on women's empowerment]{\includegraphics[scale=.1]{Fig7_s_lpop.jpg}}
+   \subfigure[The marginal forward effects of irregular regime change on women's empowerment]{\includegraphics[scale=.1]{Fig7_irregular_dummy.jpg}}
+   \subfigure[The marginal forward effects of war on women's empowerment]{\includegraphics[scale=.1]{Fig7_warDummy.jpg}}
+  \begin{flushleft}  
+        {\footnotesize {\it Note}: Panel \emph{a} shows the effects of war on possible intermediate variables. The density plots are based on results in Table \ref{FEintermed}. Panels \emph{b} through \emph{d} shows the marginal forward effects of the possible intermediate variables when they are added to the core regression models in Table \ref{tab2}. Panel \emph{e} depicts the marginal forward effects of war once these intermediate variables are included in the model, based on results inTable \ref{intermpolempowerment}.}
+       \end{flushleft} 
+\end{figure}
+
+\newpage
+\appendix
+%\includepdf[page={1}]{appendix_cover}[ht]
+\tableofcontents
+\addcontentsline{toc}{section}{Appendix}
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\input{IO_RRappendix.tex}
+
+
+\end{document}
+	
+	
+
+
+
+

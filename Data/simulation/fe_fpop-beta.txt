@@ -1,2 +1,0 @@
-fe_fpop1	fe_fpop2	fe_fpop3	fe_fpop4	fe_fpop5	fe_fpop6	fe_fpop7	fe_fpop8
--.0644647	-.0074783	.00452	.0000559	.0744707	.1063516	-.0082999	24.18953

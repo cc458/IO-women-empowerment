@@ -1,0 +1,2 @@
+fe_fertilityexist11	fe_fertilityexist12	fe_fertilityexist13	fe_fertilityexist14	fe_fertilityexist15	fe_fertilityexist16	fe_fertilityexist17	fe_fertilityexist18	fe_fertilityexist19
+-.0469642	-.0319454	-.0034713	-.0020931	-.0020115	-.0316621	.0006935	.0684659	-1.059628

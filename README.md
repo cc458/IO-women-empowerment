@@ -1,5 +1,5 @@
 # IO-women-empowerment
-Replication materials for Kaitlyn Webster, Chong Chen, and Kyle Beardsley, "Conflict, Peace, and the Evolution of Women's Empowerment", International Organization.
+Replication materials for Kaitlyn Webster, Chong Chen, and Kyle Beardsley, "Conflict, Peace, and the Evolution of Women's Empowerment," International Organization.
 
 
 For questions contact the authors: Kaitlyn Webster (kaitlyn.webster@duke.edu), Chong Chen (chong.chen@duke.edu) and Kyle Beardsley (kyle.beardsley@duke.edu).
@@ -8,37 +8,39 @@ All models are estimated using STATA 15SE; All Figures are created using R versi
 
 You need to set your working directories in both Stata and R.
 
+There are two parts of replication process: (1) The `Code` folder contains all R and Stata scripts that are used to produce the tables and figures; (2) The `Code_Prepare` folder contains R and Stata scripts that are used to prepare the data from scratch. 
 
-There are two parts of replication process: (1) Code in `Replication_all` folder contains all R and Stata scripts that clean, recode, and analyze the data. Thus, you need to use the original data files in the `raw_data` folder to create the data for all tables and figures. (2) Code in `Rcode_paper` folder contains all R and Stata scripts that are run based on the cleaned version of the data by the authors. In this case, you don't need to create the data by yourself.  
+Notice that if readers are interested in the data preparation and cleaning, they need to put all original data files in the `raw_data` folder. However, we are not allowed to upload the raw data from Banks(2014), World Banks, COW and etc. Readers are recommended to download them directly. Please contact the authors if you have problems finding them. We've provided references to get them in the R script.
+
+In cases where readers are only interested in the analysis part, the scripts in `Code_Analysis` folder will be enough. 
 
 
 Files and scripts
 ------
-
 `Data`
-* `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects. It is recommended to use the code in `Rcode_paper`. 
-* `simulation` folder: txt files stored from the estimated results using the Stata do file and will be used for making figures.
+* `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects.  
+* `simulation` folder: txt files stored from the estimated results using the Stata `do file` and will be used for making figures.
 
-
-`Figures`
-* Contains the graphics used in the article.
-
-`Tables`
-* Contains the latex tables in the appendix
-
-`Rcode_paper`
+`Code`
 * `1_Analysis.do` – Stata 15SE code to replicate all tables; State Code to generate simulation parameters
 * `2_Figures_1-2.R` – R code to reproduce Figures 1-2
 * `3_Figures_3-7.R` – R code to reproduce Figures 3-7
 
-`raw_data`
-* All original data downloaded from COW, Polity, VDEM and etc. You will need this only if you want to use the scripts in `Replication_all` folder.
+`Code_Prepare`
+* `0_Prepare_Data.R`– R code to clean the raw data. To run this script, you need to get all the raw data listed in the script. 
+*`0_Recode_variables.do`– Stata code to recode variables. 
 
-`Replication_all`
-* `0_Prepare_Data.R` - R code to create, clean and merge original datasets
-* `1_Stata_Anlysis.do`- Stata code to recode variables based on the `0_Prepare_Data.R` output; and code to replicate all tables; State Code to generate simulation parameters
-* `2_Figures_1-2.R` – R code to reproduce Figures 1-2
-* `3_Figures_3-7.R` – R code to reproduce Figures 3-7 
+`raw_data`
+* All original data downloaded from COW, Polity, VDEM and etc. You will need this data folder only if you want to use the script `0_Prepare_Data.R`. 
+
+`clean_data`
+* Folder to store the data output from the `0_Prepare_Data.R` script.
+
+`figures`
+* Contains the graphics used in the article.
+
+`tables`
+* Contains the latex tables in the appendix
 
 `R sessionInfo()`
 
