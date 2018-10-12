@@ -1,0 +1,40 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Fixed-effects models of the effect of existential war on future changes in fertility rates\label{fefertilityexistential}}
+\begin{tabular}{l*{8}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{\shortstack{Model 49\\(current)}}&\multicolumn{1}{c}{\shortstack{Model 50\\(1-year)}}&\multicolumn{1}{c}{\shortstack{Model 51\\(2-year)}}&\multicolumn{1}{c}{\shortstack{Model 52\\(3-year)}}&\multicolumn{1}{c}{\shortstack{Model 53\\(4-year)}}&\multicolumn{1}{c}{\shortstack{Model 54\\(5-year)}}&\multicolumn{1}{c}{\shortstack{Model 55\\(10-year)}}&\multicolumn{1}{c}{\shortstack{Model 56\\(15-year)}}\\
+\hline
+Existential war    &     -0.0233\sym{**} &     -0.0470\sym{**} &     -0.0687\sym{**} &     -0.0885\sym{**} &      -0.104\sym{**} &      -0.120\sym{*}  &      -0.168         &      -0.159         \\
+                    &   (0.00962)         &    (0.0193)         &    (0.0290)         &    (0.0394)         &    (0.0491)         &    (0.0610)         &     (0.127)         &     (0.160)         \\
+[1em]
+Fertility rate, lag      &     -0.0120\sym{***}&     -0.0319\sym{***}&     -0.0581\sym{***}&     -0.0895\sym{***}&      -0.126\sym{***}&      -0.166\sym{***}&      -0.407\sym{***}&      -0.669\sym{***}\\
+                    &   (0.00242)         &   (0.00490)         &   (0.00743)         &    (0.0100)         &    (0.0127)         &    (0.0155)         &    (0.0280)         &    (0.0355)         \\
+[1em]
+$\Delta$Polity scores          &    -0.00164\sym{***}&    -0.00347\sym{***}&    -0.00479\sym{***}&    -0.00628\sym{***}&    -0.00754\sym{***}&    -0.00919\sym{***}&     -0.0116\sym{***}&     -0.0109\sym{***}\\
+                    &  (0.000509)         &  (0.000919)         &   (0.00130)         &   (0.00165)         &   (0.00204)         &   (0.00227)         &   (0.00327)         &   (0.00367)         \\
+[1em]
+Polity scores, lag          &    -0.00101\sym{**} &    -0.00209\sym{**} &    -0.00326\sym{**} &    -0.00437\sym{**} &    -0.00545\sym{**} &    -0.00638\sym{**} &    -0.00827\sym{*}  &    -0.00756         \\
+                    &  (0.000480)         &  (0.000946)         &   (0.00140)         &   (0.00185)         &   (0.00226)         &   (0.00266)         &   (0.00444)         &   (0.00570)         \\
+[1em]
+$\Delta$Energy.consump,log            &    -0.00121         &    -0.00201         &    -0.00484         &     -0.0134\sym{*}  &     -0.0160\sym{*}  &     -0.0191\sym{*}  &     -0.0223         &     -0.0282         \\
+                    &   (0.00145)         &   (0.00281)         &   (0.00423)         &   (0.00768)         &   (0.00960)         &    (0.0115)         &    (0.0183)         &    (0.0197)         \\
+[1em]
+Energy.consump,log, lag           &     -0.0160\sym{***}&     -0.0317\sym{***}&     -0.0495\sym{***}&     -0.0651\sym{***}&     -0.0788\sym{***}&     -0.0913\sym{***}&      -0.135\sym{***}&      -0.150\sym{***}\\
+                    &   (0.00216)         &   (0.00449)         &   (0.00741)         &    (0.0102)         &    (0.0128)         &    (0.0153)         &    (0.0252)         &    (0.0279)         \\
+[1em]
+Year                &    0.000533\sym{**} &    0.000694         &    0.000571         &    0.000101         &   -0.000639         &    -0.00167         &     -0.0101\sym{***}&     -0.0220\sym{***}\\
+                    &  (0.000246)         &  (0.000507)         &  (0.000795)         &   (0.00111)         &   (0.00143)         &   (0.00178)         &   (0.00356)         &   (0.00493)         \\
+[1em]
+$\Delta$Neighboring fertility rates, lag&      0.0355\sym{***}&      0.0685\sym{***}&      0.0932\sym{***}&       0.118\sym{***}&       0.143\sym{***}&       0.164\sym{***}&       0.207\sym{***}&       0.188\sym{**} \\
+                    &    (0.0117)         &    (0.0224)         &    (0.0307)         &    (0.0388)         &    (0.0480)         &    (0.0555)         &    (0.0747)         &    (0.0731)         \\
+[1em]
+Constant            &      -0.916\sym{*}  &      -1.060         &      -0.596         &       0.561         &       2.258         &       4.533         &       22.41\sym{***}&       47.14\sym{***}\\
+                    &     (0.480)         &     (0.989)         &     (1.547)         &     (2.155)         &     (2.795)         &     (3.477)         &     (6.987)         &     (9.726)         \\
+\hline
+Observations        &        6677         &        6651         &        6550         &        6446         &        6316         &        6185         &        5530         &        4885         \\
+\hline\hline
+\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}
