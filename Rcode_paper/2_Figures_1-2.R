@@ -1,6 +1,7 @@
 rm(list = ls())
 #make sure your working directory is this IO-women-empowerment
 #setwd("~/IO-women-empowerment")
+library(rgeos)
 library(rgdal)
 library(maptools)
 library(ggplot2)
@@ -49,7 +50,7 @@ map = fortify(cshp, region="GWCODE")
 map$id <- as.numeric(map$id)
 map <- left_join(map, ccode1950, by =c("id" = "ccode"))
 map <- map[order(map$order), ] 
-pdf("Figures/polempowerment1950.pdf", width = 15, height = 8.5)
+pdf("Figures/Fig1a.pdf", width = 15, height = 8.5)
 ggplot() + geom_polygon(data = map, 
                         aes(x = long, y = lat, group = group, fill =  polempowerment), 
                         color = "black", size = 0.25) + coord_fixed() +
@@ -70,7 +71,7 @@ map$id <- as.numeric(map$id)
 map <- left_join(map, ccode2005, by =c("id" = "ccode"))
 map <- map[order(map$order), ] 
 
-pdf("Figures/polempowerment2005.pdf", width = 15, height = 8.5)
+pdf("Figures/Fig1b.pdf", width = 15, height = 8.5)
 ggplot() + geom_polygon(data = map, 
                         aes(x = long, y = lat, group = group, fill =  polempowerment), 
                         color = "black", size = 0.25) + coord_fixed() +
@@ -164,7 +165,7 @@ vdem_rollmean %>%
                 colour="gray1", arrow=arrow(length=unit(0.2,"cm"))) + 
        annotate("text", x = 2004, y = 0.76, parse = F, 
                 label = "Intra-state war",size=4)
-ggsave("./writing/figures/moving_avg.png", units = "cm", height =18 , width = 30)
+ggsave("Figures/Fig1c.jpg", units = "cm", height =18 , width = 30)
 
 
 
@@ -188,7 +189,7 @@ ggplot(vdem, aes(year, polempowerment)) +
             caption="Source: V-Dem Version 6.2") +
        facet_wrap(~country.name, scales = "free", nrow = 4, ncol = 2) + 
        theme_tufte()
-ggsave("Figures/countryplot.png", units = "cm", height =15 , width = 20)
+ggsave("Figures/Fig2.jpg", units = "cm", height =15 , width = 20)
 
 
 

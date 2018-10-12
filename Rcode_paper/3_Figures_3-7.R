@@ -18,7 +18,7 @@ dvs <- c("s_polempowerment", "fs_polempowerment", "f2s2_polempowerment",
          "f3s3_polempowerment", "f4s4_polempowerment", "f5s5_polempowerment",
          "f10s10_polempowerment", "f15s15_polempowerment")
 ivs <- c("warDummy", "l_polempowerment", "s_polity2", "l_polity2", 
-  "s_lpec", "l_lpec", "year", "l_neighborpolempowerment")
+  "s_lpec", "l_lpec", "year", "sl_neighborpolempowerment")
 
 b <- c("fe_polem0", "fe_polem1", "fe_polem2", "fe_polem3",
        "fe_polem4", "fe_polem5", "fe_polem10", "fe_polem15")
@@ -81,7 +81,7 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                               "4-year", "3-year", "2-year", "1-year", "Current")) + 
   labs(title = "War and Women's Political Empowerment",
     x = "Average marginal effects")
-ggsave("Figures/coefplot_FE_polempowerment.png",units = "cm", width = 12, height = 12)
+ggsave("Figures/Fig3.jpg",units = "cm", width = 12, height = 12, dpi = 300)
 
 ################## Figure (3b, c, d)
 ### for war type
@@ -91,7 +91,7 @@ dvs <- c("s_polempowerment", "fs_polempowerment", "f2s2_polempowerment",
          "f10s10_polempowerment", "f15s15_polempowerment")
 
 ivs <- c("newwar","ongoingwar"," recentwar", "l_polempowerment", "s_polity2", "l_polity2", 
-         "s_lpec", "l_lpec", "year", "l_neighborpolempowerment")
+         "s_lpec", "l_lpec", "year", "sl_neighborpolempowerment")
 
 varname <- c("newwar","ongoingwar","recentwar")
 ttvarname <- c("New War","Ongoing War","Recent War")
@@ -136,8 +136,7 @@ for (i in 1:length(b)){
                                         apply(X1, 1, function (x) draw %*% x), 1, mean) #1 indicates row, 2= columns
 }
 
-library(purrr)
-library(dplyr)
+
 df_plot <- map(marginal, data.frame) %>%
        map2_df(., names(.), ~mutate(.x, type = .y))
 names(df_plot)[1] <- "value"
@@ -158,8 +157,8 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                    "4-year", "3-year", "2-year", "1-year", "Current")) + 
        labs(title = paste0(ttvarname[j], " and Women's Political Empowerment"),
             x = "Average marginal effects")
-ggsave(paste0(paste("Figures/coefplot_FE_polempowerment", varname[j], sep="_"),".png"),
-       units = "cm", width = 12, height = 12)
+ggsave(paste0(paste("Figures/Fig3", varname[j], sep="_"),".jpg"),
+       units = "cm", width = 12, height = 12,dpi = 300)
 }
 
 
@@ -231,7 +230,7 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                    "4-year", "3-year", "2-year", "1-year", "Current")) + 
        labs(title = "War and Women's Political Empowerment, IV Model",
             x = "Average marginal effects")
-ggsave("Figures/coefplot_IV_polempowerment.png",units = "cm", width = 13, height = 12)
+ggsave("Figures/Fig4.jpg",units = "cm", width = 13, height = 12,dpi = 300)
 
 
 ### Figure 5 (a)
@@ -240,7 +239,7 @@ dvs <- c("s_polempowerment", "fs_polempowerment", "f2s2_polempowerment",
          "f3s3_polempowerment", "f4s4_polempowerment", "f5s5_polempowerment",
          "f10s10_polempowerment", "f15s15_polempowerment")
 ivs <- c("wardur", "l_polempowerment", "s_polity2", "l_polity2", 
-         "s_lpec", "l_lpec", "year", "l_neighborpolempowerment")
+         "s_lpec", "l_lpec", "year", "sl_neighborpolempowerment")
 
 b <- c("fe_polemwardur0", "fe_polemwardur1", "fe_polemwardur2", "fe_polemwardur3",
        "fe_polemwardur4", "fe_polemwardur5", "fe_polemwardur10", "fe_polemwardur15")
@@ -302,7 +301,7 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                    "4-year", "3-year", "2-year", "1-year", "Current")) + 
        labs(title = "War Duration and Women's Political Empowerment",
             x = "Average marginal effects")
-ggsave("Figures/coefplot_FE_polempowerment_wardur.png",units = "cm", width = 12, height = 12)
+ggsave("Figures/Fig5-a.jpg",units = "cm", width = 12, height = 12,dpi = 300)
 
 
 ## Figure 5(b)
@@ -311,7 +310,7 @@ dvs <- c("s_polempowerment", "fs_polempowerment", "f2s2_polempowerment",
          "f3s3_polempowerment", "f4s4_polempowerment", "f5s5_polempowerment",
          "f10s10_polempowerment", "f15s15_polempowerment")
 ivs <- c("ln_bdeaths", "l_polempowerment", "s_polity2", "l_polity2", 
-         "s_lpec", "l_lpec", "year", "l_neighborpolempowerment")
+         "s_lpec", "l_lpec", "year", "sl_neighborpolempowerment")
 
 b <- c("fe_polembd0", "fe_polembd1", "fe_polembd2", "fe_polembd3",
        "fe_polembd4", "fe_polembd5", "fe_polembd10", "fe_polembd15")
@@ -372,7 +371,7 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                    "4-year", "3-year", "2-year", "1-year", "Current")) + 
        labs(title = "Battle Deaths and Women's Political Empowerment",
             x = "Average marginal effects")
-ggsave("Figures/coefplot_FE_polempowerment_bd.png",units = "cm", width = 12, height = 12)
+ggsave("Figures/Fig5-b.jpg",units = "cm", width = 12, height = 12,dpi = 300)
 
 
 ## Figure 6(a)
@@ -381,7 +380,7 @@ dvs <- c("s_WBfertility","fs_WBfertility", "f2s2_WBfertility",
          "f3s3_WBfertility", "f4s4_WBfertility","f5s5_WBfertility", 
          "f10s10_WBfertility", "f15s15_WBfertility")
 ivs <- c("warDummy", "l_WBfertility", "s_polity2", "l_polity2", 
-         "s_lpec", "l_lpec", "year", "l_neighborWBfertility")
+         "s_lpec", "l_lpec", "year", "sl_neighborWBfertility")
 
 b <- c("fe_fertility0", "fe_fertility1", "fe_fertility2", "fe_fertility3",
        "fe_fertility4", "fe_fertility5", "fe_fertility10", "fe_fertility15")
@@ -442,7 +441,7 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                    "4-year", "3-year", "2-year", "1-year", "Current")) + 
        labs(title = "War and Fertility Rates",
             x = "Average marginal effects")
-ggsave("Figures/coefplot_FE_fertility.png",units = "cm", width = 12, height = 12)
+ggsave("Figures/Fig6-a.jpg",units = "cm", width = 12, height = 12,dpi = 300)
 
 ## Figure 6(b)
 #create a vector for dependent variables for forward effect
@@ -450,7 +449,7 @@ dvs <- c("s_WBfertility","fs_WBfertility", "f2s2_WBfertility",
          "f3s3_WBfertility", "f4s4_WBfertility","f5s5_WBfertility", 
          "f10s10_WBfertility", "f15s15_WBfertility")
 ivs <- c("existentialwardum", "l_WBfertility", "s_polity2", "l_polity2", 
-         "s_lpec", "l_lpec", "year", "l_neighborWBfertility")
+         "s_lpec", "l_lpec", "year", "sl_neighborWBfertility")
 
 b <- c("fe_fertilityexist0", "fe_fertilityexist1", "fe_fertilityexist2", "fe_fertilityexist3",
        "fe_fertilityexist4", "fe_fertilityexist5", "fe_fertilityexist10", "fe_fertilityexist15")
@@ -511,10 +510,17 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                    "4-year", "3-year", "2-year", "1-year", "Current")) + 
        labs(title = "Existential War and Fertility Rates",
             x = "Average marginal effects")
-ggsave("Figures/coefplot_FE_fertility_exist.png",units = "cm", width = 12, height = 12)
+ggsave("Figures/Fig6-b.jpg",units = "cm", width = 12, height = 12,dpi = 300)
 
 
 ## Figure 7 (a)
+## rescale population variables
+data <- data %>% 
+       dplyr::mutate(s_lpop = s_lpop*10,
+                     l_lpop = l_lpop*10,
+                     s_lWBmalepop = s_lWBmalepop*10,
+                     s_lWBfepop = s_lWBfepop*10)
+
 #create a vector for dependent variables for forward effect
 f1 <- as.formula(s_lmilper_pc ~ warDummy + l_lmilper_pc + s_polity2 + l_polity2 + s_lpec + l_lpec +year)
 f2 <- as.formula(s_lpop ~ warDummy + l_lpop + s_polity2 + l_polity2 + s_lpec + l_lpec +year)
@@ -583,20 +589,18 @@ ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
                                                "log~of~military~personel~\n~per~capita[list(Delta)]")))+ 
        labs(title = "War and Intermediate Variables",
             x = "Average marginal effects")
-ggsave("Figures/coefplot_FE_intermed.png",units = "cm", width = 18, height = 12)
+
+ggsave("Figures/Fig7-a.jpg",units = "cm", width = 18, height = 12, dpi = 300)
 
 ## Figure 7(b, c, d, e)
-## need tp rescale pop
-data <- data %>% 
-              dplyr::mutate(s_lpop = s_lpop*10,
-                            l_lpop = l_lpop*10)
+
 dvs <- c("s_polempowerment", "fs_polempowerment", "f2s2_polempowerment",
          "f3s3_polempowerment", "f4s4_polempowerment", "f5s5_polempowerment",
          "f10s10_polempowerment", "f15s15_polempowerment")
   
 ivs <- c("warDummy", "l_polempowerment", "s_lmilper_pc", "l_lmilper_pc", 
          "s_lpop", "l_lpop", "irregular_dummy", "s_polity2", "l_polity2", 
-         "s_lpec", "l_lpec", "year", "l_neighborpolempowerment")
+         "s_lpec", "l_lpec", "year", "sl_neighborpolempowerment")
 
 varname <- c("s_lmilper_pc","s_lpop","irregular_dummy", "warDummy")
 ttvarname <- c("Military Personnel Change and Women's Political Empowerment",
@@ -658,6 +662,6 @@ for (j in 1:length(varname)){
                                           "4-year", "3-year", "2-year", "1-year", "Current")) + 
               labs(title = ttvarname[j],
                    x = "Average marginal effects")
-       ggsave(paste0(paste("Figures/coefplot_FE_polempowerment", varname[j], sep="_"),".png"),
-              units = "cm", width = 18, height = 12)
+       ggsave(paste0(paste("Figures/Fig7", varname[j], sep="_"),".jpg"),
+              units = "cm", width = 18, height = 12, dpi = 300)
 }
