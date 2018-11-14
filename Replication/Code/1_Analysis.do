@@ -1,5 +1,5 @@
 // set a working directory
-cd "~/IO-women-empowerment"
+*cd "~"
 
 **load data
 use "Data/hierarchypaperdata.dta",clear

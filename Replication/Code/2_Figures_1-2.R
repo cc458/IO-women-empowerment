@@ -174,7 +174,8 @@ vdem <- mapdata %>%
 #plot
 ggplot(vdem, aes(year, polempowerment)) +
        geom_point(colour = "pink", size = 2)+
-       geom_line() + geom_smooth() +
+       geom_line() + 
+       geom_smooth(linetype = "dashed") +
        labs(x = "Year", y = "Women political empowerment",
             caption="Source: V-Dem Version 6.2") +
        facet_wrap(~country.name, scales = "free", nrow = 4, ncol = 2) + 
