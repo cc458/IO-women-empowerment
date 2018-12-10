@@ -4,7 +4,7 @@ Replication materials for Kaitlyn Webster, Chong Chen, and Kyle Beardsley, "Conf
 
 There are three main folder in this repository: "IO_Paper_Final_Submission", "Analysis",  and "Replication".
 
-`IO_Paper_Final_Submission": all tex files we submitted to IO
+`IO_Paper_Final_Submission`: all tex files we submitted to IO
 
 `Analysis`:  all analysis code, data,  and outputs
 
