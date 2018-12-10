@@ -1,0 +1,2 @@
+fe_polem51	fe_polem52	fe_polem53	fe_polem54	fe_polem55	fe_polem56	fe_polem57	fe_polem58	fe_polem59
+.0101006	-.285747	.0048248	.0014904	-.0031143	.0023086	.001623	.0223616	-3.044006

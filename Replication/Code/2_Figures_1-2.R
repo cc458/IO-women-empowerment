@@ -1,33 +1,41 @@
 rm(list = ls())
-#make sure your working directory is this IO-women-empowerment
-#setwd("~/IO-women-empowerment")
-library(rgeos)
-library(rgdal)
-library(maptools)
-library(ggplot2)
-library(countrycode)
-library(dplyr)
-library(scales)
-library(ggmap)
-library(ggthemes)
-library(cshapes)
-library(tidyquant)
-library(readstata13)
+#make sure your working directory is in "/Replication"
+setwd("../Replication")
+# Function to load &install packages
+loadPkg=function(toLoad){
+       for(lib in toLoad){
+              if(! lib %in% installed.packages()[,1])
+              {install.packages(lib, repos='http://cran.rstudio.com/')}
+              suppressMessages( library(lib, character.only=TRUE))}}
+
+#Load libraries
+packs=c('rgeos','rgdal','sf','maptools','ggplot2','countrycode','dplyr','scales',
+        'ggmap','ggthemes','cshapes','tidyquant','readstata13','arm','viridis',
+        'ggridges','purrr','dplyr')
+loadPkg(packs)
+
+## read the paper data
 hierarchypaperdata <- read.dta13("Data/hierarchypaperdata.dta")
 
 ###define a theme in ggplot2
 theme_nothing <- function(base_size = 12, legend = FALSE){
        if (legend) {
-              return(theme(line = element_blank(),rect = element_blank(), #defien the margin line
-                           axis.text = element_blank(), axis.title = element_blank(), 
-                           panel.background = element_blank(), panel.grid.major = element_blank(), 
-                           panel.grid.minor = element_blank(), axis.ticks.length = unit(0,"cm"),
+              return(theme(line = element_blank(),
+                           rect = element_blank(), #defien the margin line
+                           axis.text = element_blank(), 
+                           axis.title = element_blank(), 
+                           panel.background = element_blank(),
+                           panel.grid.major = element_blank(), 
+                           panel.grid.minor = element_blank(),
+                           axis.ticks.length = unit(0,"cm"),
                            panel.spacing = unit(0, "lines"),
                            plot.margin = unit(c(0,  0, 0, 0), "lines")))
        }
        else {
-              return(theme(line = element_blank(), rect = element_blank(), 
-                           text = element_blank(), axis.ticks.length = unit(0,"cm"), 
+              return(theme(line = element_blank(), 
+                           rect = element_blank(), 
+                           text = element_blank(),
+                           axis.ticks.length = unit(0,"cm"), 
                            legend.position = "none",
                            panel.spacing = unit(0, "lines"),
                            plot.margin = unit(c(0, 0, 0, 0), "lines")))
@@ -45,18 +53,22 @@ ccode1950 <- mapdata[mapdata$year == 1950,]
 ccode1950 <- ccode1950 %>%
               dplyr::mutate(ccode = ifelse(ccode == 255, 260, ccode))
 ##create shape_file from cshapes as 2005
-cshp <- cshp(date=as.Date("2005-01-01"), useGW=TRUE) ###use 2005 because there are only limited polygons in 1950; the missing will be filled with NA
+cshp <- cshp(date=as.Date("2005-01-01"), useGW=TRUE) ###use 2005 because 
+#there are only limited polygons in 1950; the missing will be filled with NA
 map = fortify(cshp, region="GWCODE")
 map$id <- as.numeric(map$id)
 map <- left_join(map, ccode1950, by =c("id" = "ccode"))
 map <- map[order(map$order), ] 
 pdf("Figures/Fig1a.pdf", width = 15, height = 8.5)
-ggplot() + geom_polygon(data = map, 
-                        aes(x = long, y = lat, group = group, fill =  polempowerment), 
-                        color = "black", size = 0.25) + coord_fixed() +
+ggplot() + 
+       geom_polygon(data = map, aes(x = long, y = lat, group = group,
+                     fill = polempowerment), color = "black", size = 0.25) +
+       coord_fixed() +
        scale_fill_distiller(name="Women's political empowerment",
-                            palette = 1, na.value = "gray50", guide = "colourbar", breaks = pretty_breaks(n = 5))+
-       theme_nothing(legend = T) #+
+                            palette = 1, na.value = "gray50", 
+                            guide = "colourbar", 
+                            breaks = pretty_breaks(n = 5))+
+       theme_nothing(legend = T) 
 dev.off()
 
 ## Figure 1(b)
@@ -72,19 +84,23 @@ map <- left_join(map, ccode2005, by =c("id" = "ccode"))
 map <- map[order(map$order), ] 
 
 pdf("Figures/Fig1b.pdf", width = 15, height = 8.5)
-ggplot() + geom_polygon(data = map, 
-                        aes(x = long, y = lat, group = group, fill =  polempowerment), 
-                        color = "black", size = 0.25) + coord_fixed() +
+ggplot() + 
+       geom_polygon(data = map, aes(x = long, y = lat, group = group, 
+                     fill =  polempowerment), color = "black", size = 0.25) +
+       coord_fixed() +
        scale_fill_distiller(name="Women's political empowerment",
                             palette = 1, na.value = "gray50", 
-                            guide = "colourbar", breaks = pretty_breaks(n = 5)) + 
+                            guide = "colourbar", 
+                            breaks = pretty_breaks(n = 5)) + 
               theme_nothing(legend = T)
 dev.off()
 
 
 ## Figure 1(c)
 ######1946 and 2015
-##slow moving average with width = 84 days (slow window = 3X fast window). To do this we apply two calls to tq_mutate(), the first for the 28 day (fast) and the second for the 84 day (slow) 
+##slow moving average with width = 84 days (slow window = 3X fast window).
+#To do this we apply two calls to tq_mutate(), the first for the 28 day (fast)
+#and the second for the 84 day (slow) 
 # Rolling mean
 vdem2 <- hierarchypaperdata %>% 
        dplyr::select(ccode, year, polempowerment, warDummy, inter_warDummy, 
@@ -183,5 +199,4 @@ ggplot(vdem, aes(year, polempowerment)) +
 ggsave("Figures/Fig2.jpg", units = "cm", height =15 , width = 20)
 
 
-
-
+## Move to 3_Figure_3-7 

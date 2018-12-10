@@ -2,6 +2,12 @@
 Replication materials for Kaitlyn Webster, Chong Chen, and Kyle Beardsley, "Conflict, Peace, and the Evolution of Women's Empowerment," International Organization.
 
 
+There are three main folder in this repository: "IO_Paper_Final_Submission", "Analysis",  and "Replication".
+
+`IO_Paper_Final_Submission": all tex files we submitted to IO
+`Analysis`:  all analysis code, data,  and outputs
+`Replication`: all the material for replication. Interested users should set the working directory under the `Replication` folder. 
+
 For questions contact the authors: Kaitlyn Webster (kaitlyn.webster@duke.edu), Chong Chen (chong.chen@duke.edu) and Kyle Beardsley (kyle.beardsley@duke.edu).
 
 All models are estimated using STATA 15SE; All Figures are created using R version 3.4.3
@@ -15,7 +21,7 @@ Notice that if readers are interested in the data preparation and cleaning, they
 In cases where readers are only interested in the analysis part, the scripts in `Code_Analysis` folder will be enough. 
 
 
-Files and scripts
+Files and scripts in the `Replication` folder
 ------
 `Data`
 * `hierarchypaperdata.dta` - contains all variables used to estimate models and for simulation effects.  

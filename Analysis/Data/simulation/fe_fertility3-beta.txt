@@ -1,0 +1,2 @@
+fe_fertility31	fe_fertility32	fe_fertility33	fe_fertility34	fe_fertility35	fe_fertility36	fe_fertility37	fe_fertility38	fe_fertility39
+-.0091884	-.0910491	-.0062441	-.0044177	-.0137356	-.0651607	.0001146	.1183417	.5386593

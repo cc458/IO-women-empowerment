@@ -1,0 +1,2 @@
+fe_interact41	fe_interact42	fe_interact43	fe_interact44	fe_interact45	fe_interact46	fe_interact47	fe_interact48	fe_interact49	fe_interact410	fe_interact411
+.0007843	.0137833	.0075186	-.2338204	.0050801	.0012601	-.0015079	.0018093	.001332	.0192071	-2.498619

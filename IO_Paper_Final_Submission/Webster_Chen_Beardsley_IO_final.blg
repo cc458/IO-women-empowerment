@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Webster_Chen_Beardsley_IO_final.aux
+The style file: IO_bibstyle.bst.bst
+Database file #1: bib_hierarchy.bib
+Warning--entry type for "coppedge2016varieties" isn't style-file defined
+--line 1234 of file bib_hierarchy.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 89 entries,
+            3385 wiz_defined-function locations,
+            1142 strings with 19114 characters,
+and the built_in function-call counts, 77211 in all, are:
+= -- 8580
+> -- 2746
+< -- 0
++ -- 1192
+- -- 805
+* -- 4053
+:= -- 10362
+add.period$ -- 361
+call.type$ -- 89
+change.case$ -- 532
+chr.to.int$ -- 90
+cite$ -- 89
+duplicate$ -- 6977
+empty$ -- 4359
+format.name$ -- 979
+if$ -- 15137
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 756
+newline$ -- 448
+num.names$ -- 451
+pop$ -- 2621
+preamble$ -- 1
+purify$ -- 519
+quote$ -- 0
+skip$ -- 4349
+stack$ -- 0
+substring$ -- 3361
+swap$ -- 5562
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 948
+warning$ -- 0
+while$ -- 621
+width$ -- 0
+write$ -- 1220
+(There was 1 warning)

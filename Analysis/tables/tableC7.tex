@@ -1,0 +1,40 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Robustness Check: Fixed-effects models of the effect of demonstrations on future changes in women's empowerment \label{polemdemonstrationnowar}}
+\begin{tabular}{l*{8}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{\shortstack{Model 218\\(current)}}&\multicolumn{1}{c}{\shortstack{Model 219\\(1-year)}}&\multicolumn{1}{c}{\shortstack{Model 220\\(2-year)}}&\multicolumn{1}{c}{\shortstack{Model 221\\(3-year)}}&\multicolumn{1}{c}{\shortstack{Model 222\\(4-year)}}&\multicolumn{1}{c}{\shortstack{Model 223\\(5-year)}}&\multicolumn{1}{c}{\shortstack{Model 224\\(10-year)}}&\multicolumn{1}{c}{\shortstack{Model 225\\(15-year)}}\\
+\hline
+Demonstration,dummy &     0.00269\sym{***}&     0.00419\sym{***}&     0.00564\sym{***}&     0.00770\sym{***}&     0.00790\sym{***}&     0.00905\sym{***}&     0.00926\sym{**} &      0.0138\sym{***}\\
+                    &  (0.000864)         &   (0.00123)         &   (0.00171)         &   (0.00212)         &   (0.00270)         &   (0.00328)         &   (0.00418)         &   (0.00464)         \\
+[1em]
+Political empowerment, lag    &     -0.0509\sym{***}&     -0.0949\sym{***}&      -0.141\sym{***}&      -0.192\sym{***}&      -0.239\sym{***}&      -0.290\sym{***}&      -0.513\sym{***}&      -0.677\sym{***}\\
+                    &   (0.00488)         &   (0.00853)         &    (0.0120)         &    (0.0158)         &    (0.0195)         &    (0.0233)         &    (0.0384)         &    (0.0434)         \\
+[1em]
+$\Delta$Polity scores            &     0.00317\sym{***}&     0.00567\sym{***}&     0.00589\sym{***}&     0.00531\sym{***}&     0.00499\sym{***}&     0.00472\sym{***}&     0.00347\sym{***}&     0.00341\sym{***}\\
+                    &  (0.000435)         &  (0.000754)         &  (0.000862)         &  (0.000860)         &  (0.000911)         &  (0.000877)         &  (0.000777)         &  (0.000816)         \\
+[1em]
+Polity scores, lag           &    0.000689\sym{***}&    0.000912\sym{***}&     0.00102\sym{***}&     0.00116\sym{***}&     0.00128\sym{***}&     0.00150\sym{***}&     0.00194\sym{**} &     0.00124         \\
+                    & (0.0000938)         &  (0.000163)         &  (0.000230)         &  (0.000300)         &  (0.000365)         &  (0.000438)         &  (0.000787)         &  (0.000936)         \\
+[1em]
+$\Delta$Energy.consump,log            &    0.000496         &   0.0000120         &   -0.000190         &   -0.000867         &    -0.00142         &    -0.00334         &    -0.00484         &    -0.00475         \\
+                    &  (0.000835)         &  (0.000901)         &   (0.00111)         &   (0.00135)         &   (0.00159)         &   (0.00221)         &   (0.00316)         &   (0.00387)         \\
+[1em]
+Energy.consump,log, lag            &    0.000241         &    0.000518         &    0.000903         &     0.00133\sym{*}  &     0.00180\sym{*}  &     0.00223\sym{*}  &     0.00476\sym{**} &     0.00788\sym{***}\\
+                    &  (0.000201)         &  (0.000381)         &  (0.000575)         &  (0.000782)         &  (0.000967)         &   (0.00114)         &   (0.00203)         &   (0.00284)         \\
+[1em]
+Year                &    0.000243\sym{***}&    0.000495\sym{***}&    0.000763\sym{***}&     0.00105\sym{***}&     0.00133\sym{***}&     0.00161\sym{***}&     0.00288\sym{***}&     0.00380\sym{***}\\
+                    & (0.0000294)         & (0.0000546)         & (0.0000808)         &  (0.000109)         &  (0.000135)         &  (0.000160)         &  (0.000280)         &  (0.000369)         \\
+[1em]
+$\Delta$Neighboring empowerment, lag&     0.00584         &      0.0189\sym{***}&      0.0233\sym{***}&      0.0248\sym{***}&      0.0199\sym{**} &      0.0233\sym{***}&      0.0154         &      0.0266\sym{**} \\
+                    &   (0.00362)         &   (0.00571)         &   (0.00855)         &   (0.00864)         &   (0.00828)         &   (0.00876)         &    (0.0140)         &    (0.0134)         \\
+[1em]
+Constant            &      -0.452\sym{***}&      -0.925\sym{***}&      -1.429\sym{***}&      -1.966\sym{***}&      -2.487\sym{***}&      -3.020\sym{***}&      -5.405\sym{***}&      -7.122\sym{***}\\
+                    &    (0.0551)         &     (0.102)         &     (0.152)         &     (0.204)         &     (0.253)         &     (0.300)         &     (0.528)         &     (0.697)         \\
+\hline
+Observations        &        8090         &        7889         &        7708         &        7527         &        7362         &        7209         &        6538         &        6009         \\
+\hline\hline
+\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}

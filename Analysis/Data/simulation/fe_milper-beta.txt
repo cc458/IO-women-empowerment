@@ -1,0 +1,2 @@
+fe_milper1	fe_milper2	fe_milper3	fe_milper4	fe_milper5	fe_milper6	fe_milper7	fe_milper8
+.0617502	-.1718242	-.0013174	-.0021036	.0070179	.0048226	-.0003725	.769927

@@ -1,0 +1,2 @@
+fe_mpop1	fe_mpop2	fe_mpop3	fe_mpop4	fe_mpop5	fe_mpop6	fe_mpop7	fe_mpop8
+-.007877	-.0065822	.0003975	-.0002281	.007702	.009342	-.00079	2.272961

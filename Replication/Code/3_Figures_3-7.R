@@ -1,13 +1,19 @@
-rm(list=ls())
-library(readstata13)
-library(arm)
-library(ggplot2)
-library(ggthemes)
-library(viridis)
-library(ggridges)
-library(purrr)
-library(dplyr)
+rm(list = ls())
+#make sure your working directory is in "/Replication"
+setwd("../Replication")
+# Function to load &install packages
+loadPkg=function(toLoad){
+       for(lib in toLoad){
+              if(! lib %in% installed.packages()[,1])
+              {install.packages(lib, repos='http://cran.rstudio.com/')}
+              suppressMessages( library(lib, character.only=TRUE))}}
 
+#Load libraries
+packs=c('rgeos','rgdal','sf','maptools','ggplot2','countrycode','dplyr','scales',
+        'ggmap','ggthemes','cshapes','tidyquant','readstata13','arm','viridis',
+        'ggridges','purrr','dplyr')
+loadPkg(packs)
+##load the paper data for simulations
 data <- read.dta13("Data/hierarchypaperdata.dta") 
 names(data)
 
@@ -68,24 +74,23 @@ names(df_plot)[1] <- "value"
 ##change the order of the variable
 df_plot$type <- factor(df_plot$type, levels = rev(b))
 
-
-####
+#### use ggplot to make figure 3
 ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
-  geom_density_ridges(col = "grey70", scale = 1.2, show.legend = F) +
-  scale_fill_viridis(discrete = TRUE) +
-  geom_vline(xintercept = 0, colour = gray(1/2), lty = 2) +
-  theme_ridges(font_size = 12, grid = F, center_axis_labels = T) +
-  theme(axis.title.y = element_blank(),
-        plot.title = element_text(hjust = 0.5)) +
-  scale_y_discrete(labels = c("15-year","10-year", "5-year",
-                              "4-year", "3-year", "2-year", "1-year", "Current")) + 
-  labs(title = "War and Women's Political Empowerment",
-    x = "Average marginal effects")
+         geom_density_ridges(col = "grey70", scale = 1.2, show.legend = F) +
+         scale_fill_viridis(discrete = TRUE) +
+         geom_vline(xintercept = 0, colour = gray(1/2), lty = 2) +
+         theme_ridges(font_size = 12, grid = F, center_axis_labels = T) +
+         theme(axis.title.y = element_blank(),
+               plot.title = element_text(hjust = 0.5)) +
+         scale_y_discrete(labels = c("15-year","10-year", "5-year",
+                                     "4-year", "3-year", "2-year", "1-year", "Current")) + 
+         labs(title = "War and Women's Political Empowerment",
+           x = "Average marginal effects")
 ggsave("Figures/Fig3.jpg",units = "cm", width = 12, height = 12, dpi = 300)
+
 
 ################## Figure (3b, c, d)
 ### for war type
-#formulate
 dvs <- c("s_polempowerment", "fs_polempowerment", "f2s2_polempowerment",
          "f3s3_polempowerment", "f4s4_polempowerment", "f5s5_polempowerment",
          "f10s10_polempowerment", "f15s15_polempowerment")
@@ -101,6 +106,7 @@ b <- c("fe_interact0", "fe_interact1", "fe_interact2", "fe_interact3",
 vcv <- c("fe_interact0", "fe_interact1", "fe_interact2", "fe_interact3",
          "fe_interact4", "fe_interact5", "fe_interact10", "fe_interact15")
 
+## use a for loop for make three figs
 for (j in 1:length(varname)){
 
 marginal <- list()
@@ -217,8 +223,6 @@ names(df_plot)[1] <- "value"
 ##change the order of the variable
 df_plot$type <- factor(df_plot$type, levels = rev(b))
 
-
-
 ####
 ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
        geom_density_ridges(col = "grey70", scale = 1.2, show.legend = F) +
@@ -245,7 +249,6 @@ b <- c("fe_polemwardur0", "fe_polemwardur1", "fe_polemwardur2", "fe_polemwardur3
        "fe_polemwardur4", "fe_polemwardur5", "fe_polemwardur10", "fe_polemwardur15")
 vcv <- c("fe_polemwardur0", "fe_polemwardur1", "fe_polemwardur2", "fe_polemwardur3",
          "fe_polemwardur4", "fe_polemwardur5", "fe_polemwardur10", "fe_polemwardur15")
-
 
 marginal <- list()
 for (i in 1:length(b)){
@@ -280,7 +283,6 @@ for (i in 1:length(b)){
        marginal[[b[i]]] <- apply(apply(X2, 1, function (x) draw %*% x) - 
                                         apply(X1, 1, function (x) draw %*% x), 1, mean) #1 indicates row, 2= columns
 }
-
 
 df_plot <- map(marginal, data.frame) %>%
        map2_df(., names(.), ~mutate(.x, type = .y))
@@ -576,19 +578,19 @@ df_plot$type <- factor(df_plot$type, levels = rev(b))
 
 
 ####
-ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
-       geom_density_ridges(col = "grey70", scale = 1.2, show.legend = F) +
+p <- ggplot(df_plot, aes(x = value, y = type, height=..density.., fill = type)) +
+       geom_density_ridges(col = "grey70", scale = .9, show.legend = F) +
        scale_fill_viridis(discrete = TRUE) +
        geom_vline(xintercept = 0, colour = gray(1/2), lty = 2) +
        theme_ridges(font_size = 15, grid = F, center_axis_labels = T) +
        theme(axis.title.y = element_blank()) +
-       scale_y_discrete(labels = parse(text =c("irregular~leadership~change", 
+       labs(title = "War and Intermediate Variables",
+            x = "Average marginal effects") 
+p <- p + scale_y_discrete(labels = parse(text =c("Irregular~leadership~change", 
                                                "Log~of~female~population[list(Delta)]",
                                                "Log~of~male~population[list(Delta)]",
                                                "Log~of~population[list(Delta)]",
-                                               "log~of~military~personel~\n~per~capita[list(Delta)]")))+ 
-       labs(title = "War and Intermediate Variables",
-            x = "Average marginal effects")
+                                               "log~of~military~personel~\n~per~capita[list(Delta)]")))
 
 ggsave("Figures/Fig7-a.jpg",units = "cm", width = 18, height = 12, dpi = 300)
 

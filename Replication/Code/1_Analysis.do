@@ -1,5 +1,10 @@
-// set a working directory
-*cd "~"
+// set a working directory*** Make sure the WD is in /Replication
+*cd "~/Replication"
+
+*******************************************************************************
+* if you haven't installed the estout package, use the following command
+*ssc install estout, replace
+*******************************************************************************
 
 **load data
 use "Data/hierarchypaperdata.dta",clear
