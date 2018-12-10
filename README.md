@@ -5,7 +5,9 @@ Replication materials for Kaitlyn Webster, Chong Chen, and Kyle Beardsley, "Conf
 There are three main folder in this repository: "IO_Paper_Final_Submission", "Analysis",  and "Replication".
 
 `IO_Paper_Final_Submission": all tex files we submitted to IO
+
 `Analysis`:  all analysis code, data,  and outputs
+
 `Replication`: all the material for replication. Interested users should set the working directory under the `Replication` folder. 
 
 For questions contact the authors: Kaitlyn Webster (kaitlyn.webster@duke.edu), Chong Chen (chong.chen@duke.edu) and Kyle Beardsley (kyle.beardsley@duke.edu).
