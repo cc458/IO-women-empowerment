@@ -1,11 +1,10 @@
 // set a working directory*** Make sure the WD is in /Replication
-*cd "~/Analysis"
+*cd "~/Replication"
 
 *******************************************************************************
 * if you haven't installed the estout package, use the following command
 *ssc install estout, replace
 *******************************************************************************
-
 
 **load data
 use "Data/hierarchypaperdata.dta",clear
@@ -932,7 +931,8 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed0vcv")
 		outsheet fe_polemintermed0* in 1/20 using "Data/simulation/fe_polemintermed0-vcv.txt", replace 
-		
+	restore
+	
 xtreg fs2.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe  vce(cluster ccode)
 estimates store FE_polemp_intermed_1
 mat beta = e(b)
@@ -944,7 +944,8 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed1vcv")
 		outsheet fe_polemintermed1* in 1/20 using "Data/simulation/fe_polemintermed1-vcv.txt", replace 
-
+	restore
+	
 xtreg f2s3.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe  vce(cluster ccode)
 estimates store FE_polemp_intermed_2
 mat beta = e(b)
@@ -956,7 +957,7 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed2vcv")
 		outsheet fe_polemintermed2* in 1/20 using "Data/simulation/fe_polemintermed2-vcv.txt", replace 
-
+	restore
 
 xtreg f3s4.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe  vce(cluster ccode)
 estimates store FE_polemp_intermed_3
@@ -969,7 +970,8 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed3vcv")
 		outsheet fe_polemintermed3* in 1/20 using "Data/simulation/fe_polemintermed3-vcv.txt", replace 
-
+	restore
+	
 xtreg f4s5.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe  vce(cluster ccode)
 estimates store FE_polemp_intermed_4
 mat beta = e(b)
@@ -981,7 +983,8 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed4vcv")
 		outsheet fe_polemintermed4* in 1/20 using "Data/simulation/fe_polemintermed4-vcv.txt", replace 
-
+	restore
+	
 xtreg f5s6.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe  vce(cluster ccode)
 estimates store FE_polemp_intermed_5
 mat beta = e(b)
@@ -993,7 +996,8 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed5vcv")
 		outsheet fe_polemintermed5* in 1/20 using "Data/simulation/fe_polemintermed5-vcv.txt", replace 
-
+	restore
+	
 xtreg f10s11.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe  vce(cluster ccode)
 estimates store FE_polemp_intermed_10
 mat beta = e(b)
@@ -1005,7 +1009,7 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed10vcv")
 		outsheet fe_polemintermed10* in 1/20 using "Data/simulation/fe_polemintermed10-vcv.txt", replace 
-
+	restore
 
 xtreg f15s16.polempowerment warDummy l.polempowerment s.lmilper_pc l.lmilper_pc s.lpop l.lpop irregular_dummy s.polity2 l.polity2 s.lpec l.lpec year sl.neighborpolempowerment, fe vce(cluster ccode)
 estimates store FE_polemp_intermed_15
@@ -1018,7 +1022,7 @@ mat beta = e(b)
 	preserve
 		svmat vcov, names("fe_polemintermed15vcv")
 		outsheet fe_polemintermed15* in 1/20 using "Data/simulation/fe_polemintermed15-vcv.txt", replace 
-
+	restore
 ********************************************** Table A9 to latex
 esttab FE_polemp_intermed_0 FE_polemp_intermed_1 FE_polemp_intermed_2 FE_polemp_intermed_3 FE_polemp_intermed_4 FE_polemp_intermed_5 ///
 		FE_polemp_intermed_10 FE_polemp_intermed_15 using "Tables/tableA9.tex",se parentheses ///

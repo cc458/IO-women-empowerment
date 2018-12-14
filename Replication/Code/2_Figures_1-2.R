@@ -198,5 +198,3 @@ ggplot(vdem, aes(year, polempowerment)) +
        theme_tufte()
 ggsave("Figures/Fig2.jpg", units = "cm", height =15 , width = 20)
 
-
-## Move to 3_Figure_3-7 
