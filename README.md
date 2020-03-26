@@ -10,7 +10,7 @@ There are three main folder in this repository: "IO_Paper_Final_Submission", "An
 
 `Replication`: all the material for replication. Interested users should set the working directory under the `Replication` folder. 
 
-For questions contact the authors: Kaitlyn Webster (kaitlyn.webster@duke.edu), Chong Chen (chong.chen@duke.edu) and Kyle Beardsley (kyle.beardsley@duke.edu).
+For questions contact the authors: Kaitlyn Webster (kaitlyn.webster@duke.edu), Chong Chen (chongchen@tsinghua.edu.cn) and Kyle Beardsley (kyle.beardsley@duke.edu).
 
 All models are estimated using STATA 15SE; All Figures are created using R version 3.4.3
 
